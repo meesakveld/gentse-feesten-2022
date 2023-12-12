@@ -1,4 +1,4 @@
-import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, toggleClassToClasslistOfElement } from './helpers.js';
+import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements } from './helpers.js';
 
 const randomNumberValue = randomNumber(6) + 1
 const randomLetter = {
@@ -8,7 +8,7 @@ const randomLetter = {
 
 function addHTMLForHeader(randomLetter) {
     const html = `
-        <nav class="relative">
+        <nav class="relative max-width">
             <div class="nav--left">
                 <a href="${backToRoot()}index.html" class="nav__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
                 <ul class="nav__ul">
@@ -22,7 +22,7 @@ function addHTMLForHeader(randomLetter) {
                 <ul>
                     <li><a href="#"><strong>Hoe naar GF23</strong></a></li>
                 </ul>
-                <div class="">
+                <div>
                     <button class="nav__languages hover--red">
                         <p><strong>NL</strong></p>
                         <svg class="nav__languages__chevron" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
@@ -31,11 +31,11 @@ function addHTMLForHeader(randomLetter) {
                         </svg>
                     </button>
                     <div class="nav__languages--options">
-                        <p>EN</p>
-                        <p>FR</p>
+                        <a href="#" class="hover--red--background">EN</a>
+                        <a href="#" class="hover--red--background">FR</a>
                     </div>
                 </div>
-                <a class="nav__search hover--red" href="./search.html"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                <a class="nav__search hover--red" href="${backToRoot()}search.html"><svg xmlns="http://www.w3.org/2000/svg" width="32"
                         height="32">
                         <path
                             d="m31.474 28.951-6.043-6.025a14.08 14.08 0 0 0 3.004-8.708A14.22 14.22 0 0 0 4.163 4.164a14.215 14.215 0 0 0-3.082 15.495 14.217 14.217 0 0 0 13.136 8.777 14.072 14.072 0 0 0 8.708-3.004l6.025 6.043a1.77 1.77 0 0 0 1.262.526 1.776 1.776 0 0 0 1.261-.526 1.77 1.77 0 0 0 .526-1.261 1.77 1.77 0 0 0-.526-1.262zM3.554 14.218a10.659 10.659 0 0 1 6.583-9.851 10.667 10.667 0 0 1 11.621 2.311 10.66 10.66 0 0 1 2.311 11.621 10.663 10.663 0 0 1-20.514-4.081z" />
@@ -45,9 +45,39 @@ function addHTMLForHeader(randomLetter) {
                         <path
                             d="M0 0h54.825v3.404H0V0zm11.072 14.298h32.681v3.404H11.072v-3.404zM0 28.596h54.825V32H0v-3.404z" />
                     </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="53" height="32"><path d="m53.378 29.173-23.79-13.215 23.64-13.131L51.658 0 26.259 14.108 1.722.478.152 3.305l22.777 12.652L.001 28.693l1.57 2.827 24.688-13.713 25.55 14.192z"/></svg>
                 </button>
             </div>
         </nav>
+
+        <!-- Full menu -->
+        <div class="full-menu max-width">
+            <div>
+                <ul>
+                    <li id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
+                    <li id="day"><a href="${backToRoot()}events/day.html"><strong>Programma</strong></a></li>
+                    <li><a href="#"><strong>Praktisch</strong></a></li>
+                    <li><a href="#"><strong>Live parkeerinfo</strong></a></li>
+                    <li><a href="#"><strong>Hoe naar GF23</strong></a></li>
+                </ul>
+                <ul>
+                    <li><a href="${backToRoot()}events/day.html?day=14"><strong>Vrijdag 14 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=15"><strong>Zaterdag 15 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=16"><strong>Zondag 16 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=17"><strong>Maandag 17 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=18"><strong>Dinsdag 18 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=19"><strong>Woensdag 19 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=20"><strong>Donderdag 20 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=21"><strong>Vrijdag 21 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=22"><strong>Zaterdag 22 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=23"><strong>Zondag 23 juli</strong></a></li>
+                    <li><a href="${backToRoot()}events/day.html?day=14"><strong>Programma</strong></a></li>
+                </ul>
+            </div>
+            <div class="campagne-img">
+                <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
+            </div>
+        </div>
     `
 
     addElementToDOM(html, 'header')
@@ -92,10 +122,13 @@ function loadHeader(randomLetter) {
     addEventlistenerToElement('.nav__languages', 'click', () => {
         toggleClassToClasslistOfElement('.nav__languages--options', 'open')
     });
-
+    
     // Full menu
-    addEventlistenerToElement('.full-menu__btn', 'click', () => {
+    addEventlistenerToElements('.full-menu__btn', 'click', () => {
         toggleClassToClasslistOfElement('.full-menu', 'open')
+        toggleClassToClasslistOfElement('header', 'open')
+        toggleClassToClasslistOfElement('body', 'open')
+        toggleClassToClasslistOfElements('.hover--red', 'hover--white')
     });
 }
 
