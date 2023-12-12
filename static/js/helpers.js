@@ -23,13 +23,15 @@ function addEventlistenerToElement(onElement, onEvent, callback) {
 
 /**
  * Add eventlistener to DOM elements with the same id/class
- * @param {string} onElement The DOM element to add an eventlistener. Use '#' for an id, and use ',' for an element.
+ * @param {string} onClass The DOM class to add an eventlistener. Use '#' for an id, and use ',' for an element.
  * @param {string} onEvent The event that triggers the callback
  * @param {Function} callback The action to execute when the event is triggered
  */
-function addEventlistenerToElements(onElement, onEvent, callback) {
-    const $element = document.querySelectorAll(onElement);
-    $element.addEventlisteners(onEvent, callback())
+function addEventlistenerToElements(onClass, onEvent, callback) {
+    const $elements = document.querySelectorAll(onClass);
+    $elements.forEach((elem) => {
+        elem.addEventListener(onEvent, callback)
+    })
 }
 
 
@@ -41,6 +43,19 @@ function addEventlistenerToElements(onElement, onEvent, callback) {
 function toggleClassToClasslistOfElement(onElement, className) {
     const $element = document.querySelector(onElement);
     $element.classList.toggle(className)
+}
+
+
+/**
+ * Toggle class in the DOM element classlist
+ * @param {string} onElement The DOM class name where the new class needs to be toggled
+ * @param {string} className The class to toggle
+ */
+function toggleClassToClasslistOfElements(onElements, className) {
+    const $elements = document.querySelectorAll(onElements);
+    $elements.forEach((elem) => {
+        elem.classList.toggle(className)
+    })
 }
 
 
@@ -87,4 +102,5 @@ export {
     addEventlistenerToElement,
     addEventlistenerToElements,
     toggleClassToClasslistOfElement,
+    toggleClassToClasslistOfElements,
 }
