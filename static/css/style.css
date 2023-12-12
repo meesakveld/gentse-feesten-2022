@@ -1,34 +1,354 @@
 /* FONTS */
 @font-face {
-    font-family:'Fira Sans';
-    src: url('../fonts/Fira Sans SemiBold.woff2') format('woff2'),
+	font-family: 'Fira Sans';
+	src: url('../fonts/Fira Sans SemiBold.woff2') format('woff2'),
 		url('../fonts/Fira Sans SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-2212;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
 }
 
 @font-face {
-    font-family:'Fira Sans';
-    src: url('../fonts/Fira Sans Bold.woff2') format('woff2'),
+	font-family: 'Fira Sans';
+	src: url('../fonts/Fira Sans Bold.woff2') format('woff2'),
 		url('../fonts/Fira Sans Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-2212;
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
 }
 
 @font-face {
-    font-family:'Fira Sans';
-    src: url('../fonts/Fira Sans Regular.woff2') format('woff2'),
+	font-family: 'Fira Sans';
+	src: url('../fonts/Fira Sans Regular.woff2') format('woff2'),
 		url('../fonts/Fira Sans Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-2212;
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
 }
 
 
 /* ================================================================= */
 /* ROOT */
+:root {
+	--black: hsl(0, 0%, 0%);
+	--beige: hsl(31, 49%, 81%);
+	--red: hsl(0, 79%, 57%);
+	--white: hsl(0, 0%, 100%);
+	--gray: hsla(0, 0%, 100%, 0.7);
+}
+
+::selection {
+	color: var(--black);
+	background: var(--white);
+}
+
+
+/* ================================================================= */
+/* GENERAL */
+* {
+	font-family: 'Fira Sans';
+}
+
+body {
+	background-color: var(--black);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	font-size: inherit;
+	display: block;
+}
+
+a:active {
+	outline: 2px solid var(--white);
+	outline-offset: 3px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+
+
+/* ================================================================= */
+/* CUSTOM */
+.relative {
+	position: relative;
+}
+
+
+/* ================================================================= */
+/* HOVER */
+.hover--red:hover {
+	color: var(--red);
+}
+
+.hover--red:hover svg {
+	fill: var(--red);
+}
+
+.hover--red--background:hover {
+	background-color: var(--red);
+}
+
+.hover--underline:hover {
+	text-decoration: underline;
+}
+
+
+/* ================================================================= */
+/* HEADER */
+header {
+	color: var(--white);
+	padding: 1rem;
+}
+
+@media (width > 48rem) {
+	header {
+		padding: 2.5rem;
+	}
+}
+
+@media (width > 80rem) {
+	header {
+		padding: 3.9rem 2.5rem;
+	}
+}
+
+header svg {
+	fill: var(--white);
+}
+
+header nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+}
+
+@media (width > 48rem) {
+	.nav--right {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+}
+
+@media (width > 80rem) {
+	.nav--left {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 4.5rem;
+	}
+}
+
+header .nav__logo {
+	width: 9.375rem;
+}
+
+@media (width > 62.5rem) {
+	header .nav__logo {
+		max-width: 13rem;
+	}
+}
+
+.full-menu__btn svg {
+	scale: 0.95;
+}
+
+header li,
+.nav__languages,
+.nav__search {
+	display: none;
+}
+
+@media (width > 80rem) {
+	header li {
+		display: block;
+	}
+
+	header li::after {
+		content: "";
+		margin-top: 0.5rem;
+		width: 1.3rem;
+		height: 0.8rem;
+		position: absolute;
+	}
+
+	header li.active::after {
+		border-top: 2.5px solid var(--white);
+		border-left: 2.5px solid var(--white);
+	}
+
+	header li:hover::after {
+		border-top: 2.5px solid var(--white);
+	}
+
+	header ul {
+		display: flex;
+		gap: 3.3rem;
+		text-transform: uppercase;
+	}
+}
+
+.nav__search svg {
+	scale: 0.7;
+}
+
+.nav__languages {
+	display: none;
+	align-items: center;
+	gap: 0.3rem;
+}
+
+.nav__languages__chevron {
+	rotate: 180deg;
+	scale: 0.8;
+}
+
+.nav__languages--options {
+	position: absolute;
+	bottom: -4rem;
+	background-color: var(--black);
+	border: 1px solid var(--white);
+	width: 4.5rem;
+	text-align: center;
+	height: 5rem;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 1.1rem;
+}
+
+.open.nav__languages--options {
+	display: flex;
+}
+
+@media (width > 48rem) {
+
+	.nav__languages {
+		display: flex;
+	}
+
+	.nav__search {
+		display: block;
+	}
+}
+
+
+
+/* ================================================================= */
+/* FOOTER */
+footer {
+	padding: 6.5rem 1.5rem 3rem 1.5rem;
+	color: var(--white);
+}
+
+.footer__top__container {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	margin-bottom: 7rem;
+}
+
+@media (width > 48rem) {
+	.footer__top__container {
+		gap: 5rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.footer__top {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+@media (width > 48rem) {
+	.footer__top {
+		flex-direction: row;
+		justify-content: space-between;
+	}	
+}
+
+.footer__logo {
+	width: 10rem;
+}
+
+.footer__hashtag {
+	font-size: 1.8rem;
+}
+
+@media (width > 48rem) {
+	.footer__hashtag {
+		font-size: 3.8rem;
+	}
+}
+
+.footer__partners {
+	display: flex;
+	gap: 1rem;
+}
+
+footer .socials__container {
+	display: flex;
+	gap: 1rem;
+}
+
+footer .socials__container a {
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+}
+
+footer svg {
+	background-color: var(--white);
+	border-radius: 50%;
+	scale: 1.1;
+}
+
+.footer__bottom {
+	color: var(--gray);
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	font-size: 0.85rem;
+}
+
+@media (width > 48rem) {
+	.footer__bottom {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.7rem;
+	}
+}
+
+.footer__bottom__links {
+	display: flex;
+	gap: 1rem;
+}
+
+@media (width > 48rem) {
+	.footer__bottom__links {
+		flex-shrink: 0;
+	}
+}
+
+.footer__bottom__disclaimer {
+	line-height: 1.8rem;
+}
