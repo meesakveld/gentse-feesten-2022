@@ -17,7 +17,7 @@ function addElementToDOM(content, element) {
  */
 function addEventlistenerToElement(onElement, onEvent, callback) {
     const $element = document.querySelector(onElement);
-    $element.addEventlisteners(onEvent, callback())
+    $element.addEventListener(onEvent, callback)
 }
 
 
@@ -30,6 +30,17 @@ function addEventlistenerToElement(onElement, onEvent, callback) {
 function addEventlistenerToElements(onElement, onEvent, callback) {
     const $element = document.querySelectorAll(onElement);
     $element.addEventlisteners(onEvent, callback())
+}
+
+
+/**
+ * Toggle class in the DOM element classlist
+ * @param {string} onElement The DOM element where the class need to be toggled
+ * @param {string} className The class to toggle
+ */
+function toggleClassToClasslistOfElement(onElement, className) {
+    const $element = document.querySelector(onElement);
+    $element.classList.toggle(className)
 }
 
 
@@ -75,4 +86,5 @@ export {
     randomNumber,
     addEventlistenerToElement,
     addEventlistenerToElements,
+    toggleClassToClasslistOfElement,
 }
