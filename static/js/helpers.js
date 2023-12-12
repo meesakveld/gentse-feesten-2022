@@ -60,7 +60,7 @@ function backToRoot() {
 
 /**
  * Gives an random number back.
- * @param {*} limit Max number to return
+ * @param {number} limit Max number to return
  * @returns {number} Random number between 0 and 1 or the limit if provided
  */
 function randomNumber(limit) {
