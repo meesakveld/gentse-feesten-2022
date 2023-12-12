@@ -1,8 +1,42 @@
+/**
+ * Add content to an DOM element
+ * @param {string} content The content that will be inserted
+ * @param {string} element The element that the content will be inserted to. Use '#' for an id, and use ',' for an element.
+ */
 function addElementToDOM(content, element) {
     const $element = document.querySelector(element);
     $element.innerHTML = content;
 }
 
+
+/**
+ * Add eventlistener to DOM element
+ * @param {string} onElement The DOM element to add an eventlistener. Use '#' for an id, and use ',' for an element.
+ * @param {string} onEvent The event that triggers the callback
+ * @param {Function} callback The action to execute when the event is triggered
+ */
+function addEventlistenerToElement(onElement, onEvent, callback) {
+    const $element = document.querySelector(onElement);
+    $element.addEventlisteners(onEvent, callback())
+}
+
+
+/**
+ * Add eventlistener to DOM elements with the same id/class
+ * @param {string} onElement The DOM element to add an eventlistener. Use '#' for an id, and use ',' for an element.
+ * @param {string} onEvent The event that triggers the callback
+ * @param {Function} callback The action to execute when the event is triggered
+ */
+function addEventlistenerToElements(onElement, onEvent, callback) {
+    const $element = document.querySelectorAll(onElement);
+    $element.addEventlisteners(onEvent, callback())
+}
+
+
+/**
+ * The function give back the path to go back to the root of the folder. Use example: src="${backToRoot()}static/img/img01.jpg"
+ * @returns E.g. './../../'
+ */
 function backToRoot() {
     const path = location.pathname
     let pathSlashes = 0
@@ -23,12 +57,22 @@ function backToRoot() {
     return pathToRoot
 }
 
+
+/**
+ * Gives an random number back.
+ * @param {*} limit Max number to return
+ * @returns {number} Random number between 0 and 1 or the limit if provided
+ */
 function randomNumber(limit) {
-    return Math.floor(limit ? Math.random() * limit : Math.random())
+    return (limit ? Math.floor(Math.random() * limit) : Math.random())
 }
+
+
 
 export {
     addElementToDOM,
     backToRoot,
     randomNumber,
+    addEventlistenerToElement,
+    addEventlistenerToElements,
 }
