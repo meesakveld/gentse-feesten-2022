@@ -1,13 +1,16 @@
-import { addElementToDOM, backToRoot, randomNumber } from './helpers.js';
+import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, toggleClassToClasslistOfElement } from './helpers.js';
 
-const randomNumberLocal = randomNumber(6) + 1
-const randomLetter = 'GENTSE'[randomNumberLocal - 1]
+const randomNumberValue = randomNumber(6) + 1
+const randomLetter = {
+    number: randomNumberValue,
+    letter: 'GENTSE'[randomNumberValue - 1]
+}
 
-function addHTMLForHeader(number, letter) {
+function addHTMLForHeader(randomLetter) {
     const html = `
         <nav class="relative">
             <div class="nav--left">
-                <a href="${backToRoot()}index.html" class="nav__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${number}-${letter}.svg" alt="logo"></a>
+                <a href="${backToRoot()}index.html" class="nav__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
                 <ul class="nav__ul">
                     <li id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
                     <li id="day"><a href="${backToRoot()}events/day.html"><strong>Programma</strong></a></li>
@@ -49,11 +52,11 @@ function addHTMLForHeader(number, letter) {
 
     addElementToDOM(html, 'header')
 }
-function addHTMLForFooter(number, letter) {
+function addHTMLForFooter(randomLetter) {
     const html = `
         <section class="footer__top__container">
             <div class="footer__top">
-                <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${number}-${letter}.svg" alt="logo"></a>
+                <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
                 <div class="socials__container">
                     <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M17.49 25v-8.21h2.95l.44-3.2h-3.39v-2.043c0-.927.276-1.558 1.697-1.558L21 9.988V7.126A25.196 25.196 0 0 0 18.445 7h-.091.005c-2.614 0-4.403 1.491-4.403 4.23v2.36H11v3.2h2.956V25h3.535z"/></svg></a>
                     <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M11.034 12c2.228 0 4.034 1.791 4.034 4 0 2.21-1.806 4-4.034 4S7 18.21 7 16c0-2.209 1.806-4 4.034-4zM25 16c0 2.21-1.806 4-4.034 4s-4.034-1.79-4.034-4c0-2.209 1.806-4 4.034-4S25 13.791 25 16z"/></svg></a>
@@ -79,19 +82,27 @@ function addHTMLForFooter(number, letter) {
     `
     addElementToDOM(html, 'footer')
 }
-function loadHeader(number, letter) {
+
+function loadHeader(randomLetter) {
     // Load content
-    addHTMLForHeader(number, letter)
+    addHTMLForHeader(randomLetter)
 
-    // Add eventlisteners
+    /* ———————— Add eventlisteners ———————— */
+    // Languages
+    addEventlistenerToElement('.nav__languages', 'click', () => {
+        toggleClassToClasslistOfElement('.nav__languages--options', 'open')
+    });
 
+    // Full menu
+    addEventlistenerToElement('.full-menu__btn', 'click', () => {
+        toggleClassToClasslistOfElement('.full-menu', 'open')
+    });
 }
 
 
-
 function init() {
-    loadHeader(randomNumberLocal, randomLetter)
-    addHTMLForFooter(randomNumberLocal, randomLetter)
+    loadHeader(randomLetter)
+    addHTMLForFooter(randomLetter)
 };
 
 init();
