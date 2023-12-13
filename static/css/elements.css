@@ -100,7 +100,7 @@
 
 
 
-/* ————————— .calendarview ————————— */
+/* ————————— .calendar-view ————————— */
 /* 
     <ul class="calendar-view">
         <li><a href="./events/day.html?day=14"><strong>Vr</strong>14 juli</a></li>
@@ -209,4 +209,181 @@
         }
     }
 
+}
+
+
+
+/* ————————— .activity ————————— */
+/* 
+    <a href="#" class="activity box large">
+        <p class="date">VR 14 juli</p>
+        <img src="./static/img/logos/campagne-3-N.png">
+        <div>
+            <h3 class="name">Workshop Jazz Fusion / The Spot</h3>
+            <p class="location">Baudelohof</p>
+            <p class="time">18.00 u.</p>
+            <p class="price">€</p>
+        </div>
+    </a>
+*/
+
+.activity {
+    
+    position: relative;
+
+    /* Box version => Add 'box' */
+    &.box {
+        & .date {
+            position: absolute;
+            background-color: var(--black);
+            color: white;
+            padding: 0.5rem;
+            left: 1rem;
+            top: 1rem;
+        }
+        
+        & img {
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        /* Small image? => Add 'small' */
+        &.small img {
+            height: 55vw;
+            max-height: 17rem;
+        }
+        
+        /* Large image? => Add 'large' */
+        &.large img {
+            height: 65vw;
+            max-height: 21rem;
+        }
+
+        & div {
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+            bottom: 3rem;
+            padding: 1rem 3rem 1rem 1rem;
+            
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: calc(100% - 6rem);
+
+            & .name {
+                flex: 0 0 100%;
+            }
+
+            & .location {
+                background-color: var(--red);
+                display: inline-block;
+                padding: 0.2rem 0.5rem;
+            }
+
+            & .price {
+                display: none;
+            }
+        }
+    }
+
+    /* List version => Add 'list' */
+    &.list {
+
+        border: 1px solid var(--white);
+        color: white;   
+
+        @media (width < 47rem) {
+            padding: 1rem;
+        }
+
+        & img {
+            display: none;
+        }
+
+        & .date {
+            display: none;
+        }
+
+        @media (width > 47rem) {
+            display: flex;
+
+            /* Show date => Add 'date' */
+            &.date .date{
+                display: block;
+                flex-shrink: 0;
+            }
+
+            & p, & h3 {
+                padding: 1rem;
+            }
+
+        }
+
+        & div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            @media (width > 47rem) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            & .time {
+                order: -1;
+            }
+
+            @media (width > 47rem) {
+                & .time {
+                    flex-basis: 7rem;
+                }
+            }
+
+            & .name {
+                flex-grow: 1;
+            }
+
+            @media (width > 47rem) {
+                & .name {
+                    border-left: 2px solid var(--white);
+                    border-right: 2px solid var(--white);
+                }
+            }
+
+            & .location {
+                flex-basis: 30%;
+            }
+
+            & .price {
+                width: 4rem;
+                font-size: 1.2rem;
+            }
+
+            @media (width < 47rem) {
+                & .price {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    
+                    padding: 0.5rem;
+                    border-left: 1px solid var(--white);
+                    border-top: 1px solid var(--white);
+                    
+                    height: 2rem;
+                    width: 2rem;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+        }
+
+    }
+}
+
+.activity:active {
+    outline: none;
 }
