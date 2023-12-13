@@ -87,33 +87,63 @@ function addHTMLForHeader(randomLetter) {
 
     addElementToDOM(html, 'header')
 }
+
 function addHTMLForFooter(randomLetter) {
     const html = `
-        <section class="footer__top__container">
-            <div class="footer__top">
-                <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
-                <div class="socials__container">
-                    <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M17.49 25v-8.21h2.95l.44-3.2h-3.39v-2.043c0-.927.276-1.558 1.697-1.558L21 9.988V7.126A25.196 25.196 0 0 0 18.445 7h-.091.005c-2.614 0-4.403 1.491-4.403 4.23v2.36H11v3.2h2.956V25h3.535z"/></svg></a>
-                    <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M11.034 12c2.228 0 4.034 1.791 4.034 4 0 2.21-1.806 4-4.034 4S7 18.21 7 16c0-2.209 1.806-4 4.034-4zM25 16c0 2.21-1.806 4-4.034 4s-4.034-1.79-4.034-4c0-2.209 1.806-4 4.034-4S25 13.791 25 16z"/></svg></a>
-                    <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M26.8 12.1c0-.3-.3-1.9-1.1-2.7C25 8.7 24 8.3 23 8.2h-.2C19.8 8 16.2 8 16 8s-3.8 0-6.8.2H9c-1 0-1.9.5-2.6 1.2-.8.8-1.1 2.4-1.1 2.7-.2 1.2-.3 2.4-.3 3.6v1.6c0 1.2.1 2.4.2 3.6 0 .3.3 1.8 1.1 2.7.8.7 1.7 1.1 2.7 1.1H9.3c1.7.2 6.4.2 6.6.2.2 0 3.8 0 6.8-.2h.2c1 0 1.9-.5 2.6-1.2.8-.8 1.1-2.4 1.1-2.7.1-1.2.2-2.4.2-3.6v-1.6c.2-1.1.1-2.3 0-3.5zm-13.7 7.8v-7.4l7.1 3.7-7.1 3.7z"/></svg></a>
+        <section class="footer__cta">
+            <div class="footer__cta__media">
+                <div class="arrow-btn--red">
+                    <p>Spot onze foto's</p>
+                    <svg class="cta-arrow cta-arrow--right" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
+                </div>
+                <div>
+                    <p>Aanschouw onze video's</p>
+                    <svg class="cta-arrow cta-arrow--left" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
                 </div>
             </div>
-            <div class="footer__top">
-                <p class="footer__hashtag"><strong>#GF23</strong></p>
-                <div class="footer__partners">
-                    <a href="#"><img src="${backToRoot()}static/img/icons/partner-avs.white.svg" alt="AVS logo"></a>
-                    <a href="#"><img src="${backToRoot()}static/img/icons/partner-stad-gent.white.svg" alt="Stad Gent logo"></a>
-                </div>
-            </div>
-        </section>
 
-        <section class="footer__bottom">
-            <div class="footer__bottom__links">
-                <a href="#" class="hover--underline">Privacy</a>
-                <a href="#" class="hover--underline">Cookie instellingen</a>
+            <div>
+                <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
+                <div>
+                    <h3>Blijf op de hoogte</h3>
+                    <p>Schrijf je in op de nieuwsbrief van de Gentse Feesten</p>
+                    <form>
+                        <input type="email" name"user_email" required placeholder="Jouw e-mailadres">
+                        <input type="submit" value="Inschrijven">
+                    </form>
+                    <p class="disclaimer">De Stad Gent zal de persoonsgegevens die je invult met respect voor jouw <a>privacy</a> behandelen.</p>
+                </div>
             </div>
-            <p class="footer__bottom__disclaimer">Deze website is louter informatief en geldt niet als aanbod, mogelijke fouten op de website zijn niet de aansprakelijkheid van Stad Gent.</p>
         </section>
+        <p class="date-circle">14 - 23 juli</p>
+        
+        <acticle class=footer__black>
+            <section class="footer__top__container">
+                <div class="footer__top">
+                    <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
+                    <div class="socials__container">
+                        <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M17.49 25v-8.21h2.95l.44-3.2h-3.39v-2.043c0-.927.276-1.558 1.697-1.558L21 9.988V7.126A25.196 25.196 0 0 0 18.445 7h-.091.005c-2.614 0-4.403 1.491-4.403 4.23v2.36H11v3.2h2.956V25h3.535z"/></svg></a>
+                        <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M11.034 12c2.228 0 4.034 1.791 4.034 4 0 2.21-1.806 4-4.034 4S7 18.21 7 16c0-2.209 1.806-4 4.034-4zM25 16c0 2.21-1.806 4-4.034 4s-4.034-1.79-4.034-4c0-2.209 1.806-4 4.034-4S25 13.791 25 16z"/></svg></a>
+                        <a href="#"><svg class="social hover--red--background" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M26.8 12.1c0-.3-.3-1.9-1.1-2.7C25 8.7 24 8.3 23 8.2h-.2C19.8 8 16.2 8 16 8s-3.8 0-6.8.2H9c-1 0-1.9.5-2.6 1.2-.8.8-1.1 2.4-1.1 2.7-.2 1.2-.3 2.4-.3 3.6v1.6c0 1.2.1 2.4.2 3.6 0 .3.3 1.8 1.1 2.7.8.7 1.7 1.1 2.7 1.1H9.3c1.7.2 6.4.2 6.6.2.2 0 3.8 0 6.8-.2h.2c1 0 1.9-.5 2.6-1.2.8-.8 1.1-2.4 1.1-2.7.1-1.2.2-2.4.2-3.6v-1.6c.2-1.1.1-2.3 0-3.5zm-13.7 7.8v-7.4l7.1 3.7-7.1 3.7z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer__top">
+                    <p class="footer__hashtag"><strong>#GF23</strong></p>
+                    <div class="footer__partners">
+                        <a href="#"><img src="${backToRoot()}static/img/icons/partner-avs.white.svg" alt="AVS logo"></a>
+                        <a href="#"><img src="${backToRoot()}static/img/icons/partner-stad-gent.white.svg" alt="Stad Gent logo"></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer__bottom">
+                <div class="footer__bottom__links">
+                    <a href="#" class="hover--underline">Privacy</a>
+                    <a href="#" class="hover--underline">Cookie instellingen</a>
+                </div>
+                <p class="footer__bottom__disclaimer">Deze website is louter informatief en geldt niet als aanbod, mogelijke fouten op de website zijn niet de aansprakelijkheid van Stad Gent.</p>
+            </section>
+        </acticle>
     `
     addElementToDOM(html, 'footer')
 }
