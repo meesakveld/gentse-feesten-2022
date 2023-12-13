@@ -52,15 +52,20 @@ function addHTMLForHeader(randomLetter) {
 
         <!-- Full menu -->
         <div class="full-menu max-width">
-            <div>
-                <ul>
+            <div class="full-menu__nav">
+                <ul class="full-menu__nav__menu">
                     <li id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
-                    <li id="day"><a href="${backToRoot()}events/day.html"><strong>Programma</strong></a></li>
+                    <li id="day">
+                        <a class="relative" href="${backToRoot()}events/day.html">
+                            <strong>Programma</strong>
+                            <svg class="days-arrow" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
+                        </a>
+                    </li>
                     <li><a href="#"><strong>Praktisch</strong></a></li>
                     <li><a href="#"><strong>Live parkeerinfo</strong></a></li>
                     <li><a href="#"><strong>Hoe naar GF23</strong></a></li>
                 </ul>
-                <ul>
+                <ul class="full-menu__nav__days">
                     <li><a href="${backToRoot()}events/day.html?day=14"><strong>Vrijdag 14 juli</strong></a></li>
                     <li><a href="${backToRoot()}events/day.html?day=15"><strong>Zaterdag 15 juli</strong></a></li>
                     <li><a href="${backToRoot()}events/day.html?day=16"><strong>Zondag 16 juli</strong></a></li>
