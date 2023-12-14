@@ -92,14 +92,18 @@ function addHTMLForFooter(randomLetter) {
     const html = `
         <section class="footer__cta relative">
             <div class="footer__cta__media max-width">
-                <a href="#" class="btn arrow">
+                <a href="#" class="btn arrow-right">
                     <h2>Spot onze foto's</h2>
-                    <img src="${backToRoot()}static/img/icons/arrow-right-long.svg">
+                    <div class="arrow">
+                        <svg class="arrow-right" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
+                    </div>
                 </a>
                 <br>
-                <a href="#" class="btn arrow left">
+                <a href="#" class="btn">
                     <h2>Aanschouw onze video's</h2>
-                    <img src="${backToRoot()}static/img/icons/arrow-right-long.svg">
+                    <div class="arrow">
+                        <svg class="arrow-left" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
+                    </div>
                 </a>
             </div>
 
@@ -171,10 +175,17 @@ function loadHeader(randomLetter) {
     });
 }
 
+function loadTodayToEnjoyImage(randomLetter) {
+    const html = `
+        <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
+    `
+    addElementToDOM(html, '.today-to-enjoy__img')
+}
 
 function init() {
     loadHeader(randomLetter)
     addHTMLForFooter(randomLetter)
+    loadTodayToEnjoyImage(randomLetter)
 };
 
 init();
