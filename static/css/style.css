@@ -539,7 +539,7 @@ footer {
 
 }
 
-.date-circle {
+footer .date-circle {
 	position: absolute;
 	transform: translate(-50%, -4rem);
 	left: 50%;
@@ -651,22 +651,5 @@ footer svg {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-main {
-	background-color: var(--red);
-}
+/* ================================================================= */
+/* Index.html */

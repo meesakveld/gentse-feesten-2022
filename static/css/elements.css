@@ -26,9 +26,9 @@
 
 /* ————————— .btn -> With arrow option ————————— */
 /*
-    <a href="#" class="btn arrow left">
+    <a href="#" class="btn">
         <h3>Spot onze foto's</h3>
-        <img src="./static/img/icons/arrow-right-long.svg">
+        <svg class="arrow-right" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
     </a>
 */
 
@@ -55,25 +55,6 @@
         &.arrow img {
             filter: invert();
         }
-    }
-
-    /* Arrow image => 'arrow' -> Arrow standard on right side => Left? Add 'left' */
-    &.arrow img {
-        width: 85px;
-        height: 32px;
-        transition: width 0.5s ease;
-        object-fit: cover;
-    }
-
-    &.arrow.left img {
-        rotate: 180deg;
-        order: -1;
-    }
-
-    /* Hover effect */
-    &.arrow:hover img {
-        width: 115px;
-        height: 32px;
     }
 
 }
@@ -387,3 +368,35 @@
 .activity:active {
     outline: none;
 }
+
+
+/* Arrow */
+.arrow {
+    transition: padding 0.2s ease;
+    flex-shrink: 0;
+}
+
+.arrow svg {
+    width: 7rem;
+    height: 100%;
+}
+
+path {
+    transition: d 0.2s ease;
+    position: absolute;
+}
+
+svg.arrow-right, svg.arrow-left {
+    background-color: transparent;
+    border-radius: 0;
+    scale: 1;
+}
+
+svg.arrow-left {
+    rotate: 180deg;
+}
+
+a:hover svg.arrow-right path, a:hover svg.arrow-left path {
+    d: path("M-0.172,111.093l1000,0l-85.15,-76.855l29,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-1000,0l0.424,-42.804Z");
+}
+
