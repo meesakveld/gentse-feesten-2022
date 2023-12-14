@@ -90,36 +90,39 @@ function addHTMLForHeader(randomLetter) {
 
 function addHTMLForFooter(randomLetter) {
     const html = `
-        <section class="footer__cta">
-            <div class="footer__cta__media">
+        <section class="footer__cta relative">
+            <div class="footer__cta__media max-width">
                 <a href="#" class="btn arrow">
-                    <h3>Spot onze foto's</h3>
-                    <img src="./static/img/icons/arrow-right-long.svg">
+                    <h2>Spot onze foto's</h2>
+                    <img src="${backToRoot()}static/img/icons/arrow-right-long.svg">
                 </a>
                 <br>
                 <a href="#" class="btn arrow left">
-                    <h3>Aanschouw onze video's</h3>
-                    <img src="./static/img/icons/arrow-right-long.svg">
+                    <h2>Aanschouw onze video's</h2>
+                    <img src="${backToRoot()}static/img/icons/arrow-right-long.svg">
                 </a>
             </div>
 
-            <div class="footer__cta__mail">
+            <div class="footer__cta__mail max-width">
                 <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
-                <div>
-                    <h3>Blijf op de hoogte</h3>
+                <div class="keep-in-touch">
+                    <h2>Blijf op de hoogte</h2>
                     <p>Schrijf je in op de nieuwsbrief van de Gentse Feesten</p>
                     <form>
                         <input type="email" name"user_email" required placeholder="Jouw e-mailadres">
                         <input type="submit" value="Inschrijven">
                     </form>
-                    <p class="disclaimer">De Stad Gent zal de persoonsgegevens die je invult met respect voor jouw <a>privacy</a> behandelen.</p>
+                    <p class="disclaimer">De Stad Gent zal de persoonsgegevens die je invult met respect voor jouw <a href="#">privacy</a> behandelen.</p>
                 </div>
             </div>
+            
         </section>
-        <p class="date-circle">14 - 23 juli</p>
         
         <acticle class="footer__black">
-            <section class="footer__top__container">
+
+            <section class="footer__top__container max-width relative">
+                <p class="date-circle">14 - 23 juli</p>
+
                 <div class="footer__top">
                     <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
                     <div class="socials__container">
@@ -137,7 +140,7 @@ function addHTMLForFooter(randomLetter) {
                 </div>
             </section>
 
-            <section class="footer__bottom">
+            <section class="footer__bottom max-width">
                 <div class="footer__bottom__links">
                     <a href="#" class="hover--underline">Privacy</a>
                     <a href="#" class="hover--underline">Cookie instellingen</a>
