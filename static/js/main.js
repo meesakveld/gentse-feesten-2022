@@ -92,17 +92,18 @@ function addHTMLForFooter(randomLetter) {
     const html = `
         <section class="footer__cta">
             <div class="footer__cta__media">
-                <div class="arrow-btn--red">
-                    <p>Spot onze foto's</p>
-                    <svg class="cta-arrow cta-arrow--right" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
-                </div>
-                <div>
-                    <p>Aanschouw onze video's</p>
-                    <svg class="cta-arrow cta-arrow--left" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
-                </div>
+                <a href="#" class="btn arrow">
+                    <h3>Spot onze foto's</h3>
+                    <img src="./static/img/icons/arrow-right-long.svg">
+                </a>
+                <br>
+                <a href="#" class="btn arrow left">
+                    <h3>Aanschouw onze video's</h3>
+                    <img src="./static/img/icons/arrow-right-long.svg">
+                </a>
             </div>
 
-            <div>
+            <div class="footer__cta__mail">
                 <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
                 <div>
                     <h3>Blijf op de hoogte</h3>
@@ -117,7 +118,7 @@ function addHTMLForFooter(randomLetter) {
         </section>
         <p class="date-circle">14 - 23 juli</p>
         
-        <acticle class=footer__black>
+        <acticle class="footer__black">
             <section class="footer__top__container">
                 <div class="footer__top">
                     <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>

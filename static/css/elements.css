@@ -37,6 +37,7 @@
     padding: 1rem;
     position: relative;
     background-color: var(--red);
+    color: var(--black);
 
     /* Flexbox */
     display: inline-flex;
@@ -45,12 +46,11 @@
 
     /* Text */
     font-size: 1.5rem;
-    white-space: nowrap;
     
     /* Color => Add 'black' */
     &.black {
         background-color: var(--black);
-        color: white;
+        color: var(--white);
 
         &.arrow img {
             filter: invert();
