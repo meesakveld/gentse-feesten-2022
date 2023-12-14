@@ -45,7 +45,7 @@
     align-items: center;
 
     /* Text */
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     
     /* Color => Add 'black' */
     &.black {
