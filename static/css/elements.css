@@ -42,7 +42,7 @@
     /* Flexbox */
     display: inline-flex;
     align-items: center;
-    
+
     /* Color => Add 'black' */
     &.black {
         background-color: var(--black);
@@ -68,6 +68,27 @@
                 opacity: 0;
             }
         }
+    }
+
+    &.arrow--left, &.arrow--right {
+        transition: padding 0.2s ease;
+        position: relative;
+    }
+
+    &.arrow--left .arrow {
+        left: -2rem;
+    }
+    
+    &.arrow--right .arrow {
+        right: -2rem;
+    }
+
+    &.arrow--left:hover {
+        padding-left: 3.1rem;
+    }
+    
+    &.arrow--right:hover {
+        padding-right: 3.1rem;
     }
 
 }
@@ -117,11 +138,9 @@
     /* Grid */
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(2, 100%);
-    grid-column-gap: 0.125rem;
-    grid-row-gap: 0.125rem;
-
-    max-width: 37.5rem;
+    grid-template-rows: repeat(2, 7rem);
+    grid-column-gap: 0.1rem;
+    grid-row-gap: 0.1rem;
 
     /* Hide fillers */
     & span {
@@ -165,10 +184,12 @@
 
 
     /* Grid version => Add 'grid' */
-    @media (width > 37.5rem) {
+    @media (width > 48rem) {
+        max-width: 37.5rem;
+
         &.grid {
-            grid-template-columns: repeat(3, 25%);
-            grid-template-rows: repeat(4, 45%);
+            grid-template-columns: repeat(3, 20%);
+            grid-template-rows: repeat(4, 40%);
             
             /* Text */
             & a {
@@ -184,6 +205,7 @@
 
     /* Line version => Add 'line' */
     @media (width > 80rem) {
+
         &.line {
             display: flex;
             justify-content: center;
@@ -406,28 +428,14 @@
     
     &.left {
         position: relative;
-        left: -2rem;
         transition: all 0.2s ease;
     }
     
     &.right {
         position: relative;
-        right: -2rem;
         transition: all 0.2s ease;
     }
 
-}
-
-a.arrow--left, a.arrow--right {
-    transition: padding 0.2s ease;
-}
-
-a.arrow--left:hover {
-    padding-left: 3.1rem;
-}
-
-a.arrow--right:hover {
-    padding-right: 3.1rem;
 }
 
 path {
