@@ -41,19 +41,32 @@
 
     /* Flexbox */
     display: inline-flex;
-    gap: 2rem;
     align-items: center;
-
-    /* Text */
-    font-size: 1.2rem;
     
     /* Color => Add 'black' */
     &.black {
         background-color: var(--black);
         color: var(--white);
+        border: 1px solid white;
+        transition: all 0.2s ease;
 
-        &.arrow img {
+        & .arrow {
             filter: invert();
+            transition: all 0.2s ease;
+        }
+
+        &.hover-white:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        &.hover-red:hover {
+            background-color: var(--red);
+            color: black;
+
+            & .arrow {
+                opacity: 0;
+            }
         }
     }
 
@@ -374,26 +387,52 @@
 .arrow {
     transition: padding 0.2s ease;
     flex-shrink: 0;
+
+    & svg {
+        width: 7rem;
+        height: 100%;
+
+        &.arrow-right, &.arrow-left {
+            background-color: transparent;
+            border-radius: 0;
+            scale: 1;
+        }
+
+        &.arrow-left {
+            rotate: 180deg;
+        }
+
+    }
+    
+    &.left {
+        position: relative;
+        left: -2rem;
+        transition: all 0.2s ease;
+    }
+    
+    &.right {
+        position: relative;
+        right: -2rem;
+        transition: all 0.2s ease;
+    }
+
 }
 
-.arrow svg {
-    width: 7rem;
-    height: 100%;
+a.arrow--left, a.arrow--right {
+    transition: padding 0.2s ease;
+}
+
+a.arrow--left:hover {
+    padding-left: 3.1rem;
+}
+
+a.arrow--right:hover {
+    padding-right: 3.1rem;
 }
 
 path {
     transition: d 0.2s ease;
     position: absolute;
-}
-
-svg.arrow-right, svg.arrow-left {
-    background-color: transparent;
-    border-radius: 0;
-    scale: 1;
-}
-
-svg.arrow-left {
-    rotate: 180deg;
 }
 
 a:hover svg.arrow-right path, a:hover svg.arrow-left path {

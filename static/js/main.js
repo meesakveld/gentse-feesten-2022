@@ -92,18 +92,18 @@ function addHTMLForFooter(randomLetter) {
     const html = `
         <section class="footer__cta relative">
             <div class="footer__cta__media max-width">
-                <a href="#" class="btn arrow-right">
+                <a href="#" class="btn arrow--right">
                     <h2>Spot onze foto's</h2>
-                    <div class="arrow">
+                    <div class="arrow right">
                         <svg class="arrow-right" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
                     </div>
                 </a>
                 <br>
-                <a href="#" class="btn">
-                    <h2>Aanschouw onze video's</h2>
-                    <div class="arrow">
+                <a href="#" class="btn arrow--left">
+                    <div class="arrow left">
                         <svg class="arrow-left" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
                     </div>
+                    <h2>Aanschouw onze video's</h2>
                 </a>
             </div>
 
@@ -125,7 +125,7 @@ function addHTMLForFooter(randomLetter) {
         <acticle class="footer__black">
 
             <section class="footer__top__container max-width relative">
-                <p class="date-circle">14 - 23 juli</p>
+                <p class="date-circle"><strong>14 - 23 juli</strong></p>
 
                 <div class="footer__top">
                     <a href="${backToRoot()}index.html" class="footer__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
