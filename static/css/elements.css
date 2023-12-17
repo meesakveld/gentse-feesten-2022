@@ -247,12 +247,19 @@
 .activity {
 
     position: relative;
-    width: 25rem;
-    height: 25rem;
 
     &.box { /* IMPORTANT: Add height and width! */
 
-        padding-right: 10%;
+        margin-bottom: 7.5%;
+
+        & .date {
+            position: absolute;
+            background-color: var(--black);
+            color: white;
+            padding: 0.5rem;
+            left: 1rem;
+            top: 1rem;
+        }
 
         & .content {
             position: absolute;
@@ -264,6 +271,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
+
+            margin-right: 10%;
 
             & .price {
                 display: none;
@@ -283,10 +292,22 @@
 
         & .image {
             height: 100%;
-            width: 110%;
+            width: 100%;
             position: absolute;
             background-size: cover;
             background-position: top center;
+        }
+
+        &.small {
+            margin-bottom: 2.5%;
+        }
+
+        &.small .image {
+            height: 90%;
+        }
+
+        &.small .content {
+            bottom: -5%;
         }
 
     }
