@@ -61,6 +61,7 @@
         }
 
         &.hover-red:hover {
+            border-color: var(--red);
             background-color: var(--red);
             color: black;
 
