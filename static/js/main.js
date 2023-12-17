@@ -176,10 +176,13 @@ function loadHeader(randomLetter) {
 }
 
 function loadTodayToEnjoyImage(randomLetter) {
-    const html = `
-        <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
-    `
-    addElementToDOM(html, '.today-to-enjoy__img')
+    const element = document.querySelector('.today-to-enjoy__img')
+    if (element) {
+        const html = `
+            <img src="${backToRoot()}static/img/logos/campagne-${randomLetter.number}-${randomLetter.letter}.png">
+        `
+        addElementToDOM(html, '.today-to-enjoy__img')
+    }
 }
 
 function init() {
