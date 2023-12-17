@@ -94,6 +94,15 @@ function randomNumber(limit) {
 }
 
 
+/**
+ * Returnes the first 2 letters of a Dayname in uppercase.
+ * @param {string} dayname 
+ * @returns E.g. 'SA'
+ */
+function fullDaynameToShortForm(dayname) {
+    return (dayname[0] + dayname[1]).toUpperCase()
+}
+
 
 export {
     addElementToDOM,
@@ -103,4 +112,5 @@ export {
     addEventlistenerToElements,
     toggleClassToClasslistOfElement,
     toggleClassToClasslistOfElements,
+    fullDaynameToShortForm,
 }
