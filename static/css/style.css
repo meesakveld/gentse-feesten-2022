@@ -758,7 +758,8 @@ footer svg {
 
 	display: flex;
 	align-items: flex-end;
-	overflow: scroll;
+	overflow-x: scroll;
+	overflow-y: hidden;
 	gap: 3rem;
 	padding-bottom: 0.5rem;
 }
