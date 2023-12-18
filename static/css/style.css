@@ -1072,6 +1072,7 @@ footer svg {
 	flex-wrap: wrap;
 	justify-content: space-between;
     align-items: center;
+	margin-bottom: 3rem;
 }
 
 .search-results__results .box {
