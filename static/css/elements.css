@@ -474,20 +474,21 @@ a:hover svg.arrow-right path, a:hover svg.arrow-left path {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--white);
-    height: 20rem;
+    height: 50%;
     color: white;
     overflow: hidden;
-    transition: all 0.2s ease;
 
     & div {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex-basis: 20rem;
+        flex-basis: 40%;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
 
         & h2, & svg {
             padding: 1rem;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
         }
     }
 
@@ -503,7 +504,7 @@ a:hover svg.arrow-right path, a:hover svg.arrow-left path {
         transition: all 0.2s ease;
     }
 
-    @media (width < 31.25rem) {
+    @media (width < 43.75rem) {
 
         &:hover {
 
@@ -519,8 +520,9 @@ a:hover svg.arrow-right path, a:hover svg.arrow-left path {
 
     }
 
-    @media (width > 31.25rem) {
+    @media (width > 43.75rem) {
 
+        height: 18rem;
         flex-direction: row;
 
         & img {
@@ -546,4 +548,31 @@ a:hover svg.arrow-right path, a:hover svg.arrow-left path {
 
     }
 
+}
+
+
+/* ————————— .next-page ————————— */
+.next-page ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--white);
+    font-size: 1.3rem;
+
+    & li {
+        padding: 1rem;
+        border-radius: 50%;
+        border: 1px solid var(--white);
+        height: 1rem;
+        width: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.active {
+            background-color: var(--red);
+            color: var(--black);
+            border-color: var(--red);
+        }
+    }
 }
