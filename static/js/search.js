@@ -1,5 +1,5 @@
 import { loadEvents } from "./api.js";
-import { addElementToDOM, addEventlistenerToElement, fullDaynameToShortForm, backToRoot } from "./helpers.js"
+import { addElementToDOM, fullDaynameToShortForm, backToRoot } from "./helpers.js"
 
 function getViewOption() {
     const viewStatus = document.querySelector('.active')
