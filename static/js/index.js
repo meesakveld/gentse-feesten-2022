@@ -18,7 +18,7 @@ function loadEightRandomEvents() {
                 <article class="activity box ${index % 2 === 0 ? '' : 'small'}">
                     <div class="image" style="background-image: url(${event.image.full});"></div>
                     <p class="date">${fullDaynameToShortForm(event.day_of_week)} ${event.day} juli</p>
-                    <a href="${backToRoot()}events/day.html?id=${event.id}" class="content">
+                    <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
                         <h3 class="name">${event.title}</h3>
                         <p class="location">${event.location}</p>
                         <p class="time">${event.start} u.</p>
