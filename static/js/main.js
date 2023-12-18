@@ -1,5 +1,12 @@
 import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements } from './helpers.js';
 
+function checkPage(id) {
+    const currentPage = window.location.pathname.split('/').pop()
+    if (currentPage === id + '.html') {
+        return 'active'
+    }
+}
+
 const randomNumberValue = randomNumber(6) + 1
 const randomLetter = {
     number: randomNumberValue,
@@ -12,8 +19,8 @@ function addHTMLForHeader(randomLetter) {
             <div class="nav--left">
                 <a href="${backToRoot()}index.html" class="nav__logo"><img src="${backToRoot()}static/img/logos/GF-logo-2023-${randomLetter.number}-${randomLetter.letter}.svg" alt="logo"></a>
                 <ul class="nav__ul">
-                    <li id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
-                    <li id="day"><a href="${backToRoot()}events/day.html"><strong>Programma</strong></a></li>
+                    <li class="${checkPage('news')}" id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
+                    <li class="${checkPage('day')}" id="day"><a href="${backToRoot()}events/day.html"><strong>Programma</strong></a></li>
                     <li><a href="#"><strong>Praktisch</strong></a></li>
                     <li><a href="#"><strong>Live parkeerinfo</strong></a></li>
                 </ul>
