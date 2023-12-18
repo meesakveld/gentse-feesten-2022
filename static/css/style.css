@@ -1066,13 +1066,16 @@ footer svg {
 	background-image: url(../img/icons/list.svg);
 }
 
+.search-results__results {
+	margin-bottom: 3rem;
+}
+
 .search-results__results.box {
 	gap: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
     align-items: center;
-	margin-bottom: 3rem;
 }
 
 .search-results__results .box {
