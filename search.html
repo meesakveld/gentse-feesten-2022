@@ -16,20 +16,33 @@
 
     <main>
 
-        <div class="title max-width">
+        <div class="search__title max-width">
             <h2>Programma doorzoeken</h2>
-            <form>
-                <input type="text" placeholder="Doorzoek het programma..." required>
+            <form class="relative">
+                <input class="input" type="text" placeholder="Doorzoek het programma." required>
+                <input class="submit" type="submit" value="">
             </form>
         </div>
 
-        <article class="search-results max-width"></article>
+        <article class="search-results max-width">
+            <div class="search-results__amount">
+                <p><strong>94 resultaten</strong> voor "test"</p>
+            </div>
+
+            <div class="search-results__view-option">
+                <span class="box active"></span>
+                <span class="list"></span>
+            </div>
+            <div class="search-results__results"></div>
+            <div class="search-results__next-pages"></div>
+        </article>
 
     </main>
 
     <footer></footer>
 
     <script src="./static/js/main.js" type="module"></script>
+    <script src="./static/js/search.js" type="module"></script>
 
 </body>
 
