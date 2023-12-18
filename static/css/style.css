@@ -1014,6 +1014,7 @@ footer svg {
 
 .search-results {
 	color: var(--white);
+	margin-bottom: 5rem;
 }
 
 .search-results .search-results__amount {
