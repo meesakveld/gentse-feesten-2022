@@ -1022,8 +1022,12 @@ footer svg {
 
 /* ————— */
 
+.search-results.hidden {
+	display: none;
+}
+
 .search-results__view-option {
-	margin-left: auto;
+	margin: 3rem 0rem 3rem auto;
 	width: 4.5rem;
 	display: flex;
 	gap: 0.5rem;
@@ -1033,6 +1037,8 @@ footer svg {
 	display: block;
 	width: 2rem;
 	height: 2rem;
+
+	cursor: pointer;
 
 	background-repeat: no-repeat;
 	background-size: 50%;
@@ -1050,4 +1056,18 @@ footer svg {
 
 .search-results__view-option .list {
 	background-image: url(../img/icons/list.svg);
+}
+
+.search-results__results.box {
+	gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+    align-items: center;
+}
+
+.search-results__results .box {
+	width: 22rem;
+	height: 18rem;
+	flex-grow: 1;
 }
