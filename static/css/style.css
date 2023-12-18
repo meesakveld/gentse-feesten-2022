@@ -436,7 +436,8 @@ footer {
 
 .footer__cta {
 	background-color: var(--beige);
-	padding: 2rem 1.5rem 3rem 1.5rem;
+	padding-top: 2rem;
+    padding-bottom: 3rem;
 	color: var(--black);
 }
 
@@ -939,3 +940,8 @@ footer svg {
 		margin-bottom: 0;
 	}
 }
+
+
+
+/* ================================================================= */
+/* Search.html */
