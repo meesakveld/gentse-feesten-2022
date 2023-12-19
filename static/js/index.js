@@ -15,7 +15,7 @@ function loadEightRandomEvents() {
         // Add events to the div
         const html = events.map((event, index) => {
             return `   
-                <article class="activity box ${index % 2 === 0 ? '' : 'small'}">
+                <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
                     <div class="image" style="background-image: url(${event.image.full});"></div>
                     <p class="date">${fullDaynameToShortForm(event.day_of_week)} ${event.day} juli</p>
                     <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
