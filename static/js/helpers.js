@@ -114,6 +114,15 @@ function getSearchParamsFromURL(param) {
     return urlParams.get(param)
 }
 
+/**
+ * Convert a string to lowercase and snake case. E.g. 'Hello World' => 'hello_world'
+ * @param {string} string The string to convert to lowercase and snake case
+ * @returns An string in lowercase and snake case
+ */
+function stringToLowercaseSnakeCase(string) {
+    return string.replace(/\W+/g, " ").toLowerCase().split(" ").join("_")
+}
+
 
 export {
     addElementToDOM,
@@ -125,4 +134,5 @@ export {
     toggleClassToClasslistOfElements,
     fullDaynameToShortForm,
     getSearchParamsFromURL,
+    stringToLowercaseSnakeCase,
 }
