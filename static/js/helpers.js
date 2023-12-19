@@ -104,6 +104,17 @@ function fullDaynameToShortForm(dayname) {
 }
 
 
+/**
+ * 
+ * @param {string} param The param to get back from the URL 
+ * @returns Search param from URL
+ */
+function getSearchParamsFromURL(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param)
+}
+
+
 export {
     addElementToDOM,
     backToRoot,
@@ -113,4 +124,5 @@ export {
     toggleClassToClasslistOfElement,
     toggleClassToClasslistOfElements,
     fullDaynameToShortForm,
+    getSearchParamsFromURL,
 }
