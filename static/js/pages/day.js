@@ -40,7 +40,7 @@ function loadCalendarView() {
 function loadThreeRandomActivities() {
     loadEvents((data) => {
         const today = getDateFromURL()
-        const events = data.filter(event => event.day === today).filter(event => event.image !== null)
+        const events = data.filter(event => event.day === today)
         const arr = []
         for (let i = 0; i < 3; i++) {
             arr.push(events[Math.floor(Math.random() * events.length)])
@@ -49,7 +49,9 @@ function loadThreeRandomActivities() {
         const html = arr.map((event, index) => {
             return `
                 <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
-                    <div class="image" style="background-image: url(${event.image.full});"></div>
+                    <div class="image">
+                        <img src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
+                    </div>
                     <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
                         <h3 class="name">${event.title}</h3>
                         <p class="location">${event.location}</p>
@@ -93,12 +95,14 @@ function loadDayEventsBasedOnCategory() {
                     const events = categoryEvents.map((event, index) => {
                         return `
                             <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
-                                <div class="image" style="background-image: url(${event.image.full});"></div>
+                                <div class="image">
+                                    <img src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
+                                </div>
                                 <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
                                     <h3 class="name">${event.title}</h3>
                                     <p class="location">${event.location}</p>
                                     <p class="time">${event.start} u.</p>
-                                    <p class="price">${event.ticket === 'paid' ? '€' : ''}</p>
+                                    ${event.ticket === 'paid' ? '<p class="price">€</p>' : ''}
                                 </a>
                             </article>
                         `

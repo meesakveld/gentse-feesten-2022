@@ -1,0 +1,191 @@
+/* ————————— .activity ————————— */
+/* 
+
+    <article class="activity box date">
+         <div class="image">
+            <img src="./static/img/logos/campagne-1-G.png" alt="alt-text}">
+        </div>
+        <p class="date">12/21</p>
+        <a href="#" class="content">
+            <h3 class="name">Workshop Jazz Fusion / The Spot</h3>
+            <p class="location">Baudelohof</p>
+            <p class="time">18.00 u.</p>
+            <p class="price">€</p>
+        </a>
+    </article>
+    
+*/
+
+
+.activity {
+
+    position: relative;
+
+    &.box { /* IMPORTANT: Add height and width! */
+
+        margin-bottom: 7.5%;
+
+        & .date {
+            position: absolute;
+            background-color: var(--black);
+            color: white;
+            padding: 0.5rem;
+            left: 1rem;
+            top: 1rem;
+        }
+
+        & .content {
+            position: absolute;
+            background-color: var(--black);
+            color: white;
+            padding: 1rem;
+            bottom: -15%;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            margin-right: 10%;
+
+            & .price {
+                display: none;
+            }
+
+            & .name {
+                flex: 0 0 100%;
+            }
+
+            & .location {
+                background-color: var(--red);
+                display: inline-block;
+                padding: 0.2rem 0.5rem;
+            }
+            
+        }
+
+        & .image {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1.5 / 1;
+
+            & img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &.small {
+            margin-bottom: 2.5%;
+        }
+
+        &.small .image {
+            height: 90%;
+        }
+
+        &.small .content {
+            bottom: -5%;
+        }
+
+    }
+
+    &.list {
+        
+        border: 1px solid var(--white);
+        color: white;   
+
+        @media (width < 47rem) {
+            padding: 1rem;
+        }
+
+        & .date, & .image {
+            display: none;
+        }
+
+        & a:active {
+            outline: none;
+        }
+
+        @media (width > 47rem) {
+            display: flex;
+
+            /* Show date => Add 'date' */
+            &.date .date{
+                display: block;
+                flex-shrink: 0;
+                flex-basis: 8%;
+            }
+
+            & p, & h3 {
+                padding: 1rem;
+            }
+
+        }
+
+        & .content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            @media (width > 47rem) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            & .time {
+                order: -1;
+            }
+
+            @media (width > 47rem) {
+                & .time {
+                    flex-basis: 7rem;
+                    flex-shrink: 0;
+                }
+            }
+
+            & .name {
+                flex-grow: 1;
+            }
+
+            @media (width > 47rem) {
+                & .name {
+                    border-left: 2px solid var(--white);
+                    border-right: 2px solid var(--white);
+                    flex-basis: calc(100% - 10% - 7rem);
+                }
+            }
+
+            & .location {
+                flex-basis: 30%;
+                flex-shrink: 0;
+            }
+
+            & .price {
+                width: 4rem;
+                font-size: 1.2rem;
+            }
+
+            @media (width < 47rem) {
+                & .price {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    
+                    padding: 0.5rem;
+                    border-left: 1px solid var(--white);
+                    border-top: 1px solid var(--white);
+                    
+                    height: 2rem;
+                    width: 2rem;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,94 @@
+/* ————————— .news-item ————————— */
+/* 
+
+    <article>
+        <a class="news-item" href="./news.html?id=${article.id}">
+            <div class="relative">
+                <h2>Ze zijn voorbij</h2>
+                <svg viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#fff"></path></svg>
+            </div>
+            <img src="../app/static/img/logos/campagne-3-N.png">
+        </a>
+    </article>
+    
+*/
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    height: 50%;
+    color: white;
+    overflow: hidden;
+
+    & div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-basis: 40%;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+
+        & h2, & svg {
+            padding: 1rem;
+            transition: all 0.2s ease;
+        }
+    }
+
+    & img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+        order: -1;
+    }
+
+    & svg {
+        width: 8rem;
+        transition: all 0.2s ease;
+    }
+
+    @media (width < 43.75rem) {
+
+        &:hover {
+
+            & div {
+                background-color: var(--red);
+    
+                & svg {
+                    opacity: 0;
+                }
+            }
+    
+        }
+
+    }
+
+    @media (width > 43.75rem) {
+
+        height: 18rem;
+        flex-direction: row;
+
+        & img {
+            height: 100%;
+            order: 1;
+        }
+
+        &:hover {
+
+            & div {
+                justify-content: flex-end;
+            }
+    
+            & div h2 {
+                background-color: var(--red);
+                color: var(--black);
+                position: absolute;
+                top: 0;
+                width: 120%;
+                padding-right: calc(20% + 1rem);
+            }
+        }
+
+    }
+
+}

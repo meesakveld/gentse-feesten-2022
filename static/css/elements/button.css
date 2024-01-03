@@ -1,0 +1,71 @@
+/* ————————— .btn -> With arrow option ————————— */
+/*
+    <a href="#" class="btn arrow--right">
+        <h2>Spot onze foto's</h2>
+        <div class="arrow right">
+            <svg class="arrow-right" viewBox="0 0 1197 269" aria-hidden="true"><path d="M-0.159,111.093l639.756,0l-85.15,-76.855l29.643,-32.816l144.777,131.216l-143.608,129.655l-30.23,-32.081l84.144,-76.315l-639.756,0l0.424,-42.804Z" fill="#000"></path></svg>
+        </div>
+    </a>
+*/
+
+.btn {
+    /* Element */
+    padding: 1rem;
+    position: relative;
+    background-color: var(--red);
+    color: var(--black);
+
+    /* Flexbox */
+    display: inline-flex;
+    align-items: center;
+
+    /* Color => Add 'black' */
+    &.black {
+        background-color: var(--black);
+        color: var(--white);
+        border: 1px solid white;
+        transition: all 0.2s ease;
+
+        & .arrow {
+            filter: invert();
+            transition: all 0.2s ease;
+        }
+
+        &.hover-white:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        &.hover-red:hover {
+            border-color: var(--red);
+            background-color: var(--red);
+            color: black;
+
+            & .arrow {
+                opacity: 0;
+            }
+        }
+    }
+
+    &.arrow--left, &.arrow--right {
+        transition: padding 0.2s ease;
+        position: relative;
+    }
+
+    &.arrow--left .arrow {
+        left: -2rem;
+    }
+    
+    &.arrow--right .arrow {
+        right: -2rem;
+    }
+
+    &.arrow--left:hover {
+        padding-left: 3.1rem;
+    }
+    
+    &.arrow--right:hover {
+        padding-right: 3.1rem;
+    }
+
+}
