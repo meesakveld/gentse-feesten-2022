@@ -1,5 +1,5 @@
-import { loadEvents, loadCategories } from "./api.js";
-import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase } from "./helpers.js"
+import { loadEvents, loadCategories } from "../exports/api.js";
+import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase } from "../exports/helpers.js"
 
 function getDateFromURL() {
     const day = getSearchParamsFromURL('day');
@@ -81,14 +81,12 @@ function loadDayEventsBasedOnCategory() {
 
     loadEvents((data) => {
         const todaysEvents = data.filter(event => event.day === getDateFromURL())
-        console.log(todaysEvents);
 
         loadCategories(categories => {
 
             for (const category of categories.sort()) {
 
                 const categoryEvents = todaysEvents.filter(event => event.category[0] === category)
-                console.log(categoryEvents);
 
                 if (categoryEvents.length !== 0) {
 
@@ -108,8 +106,10 @@ function loadDayEventsBasedOnCategory() {
 
                     $searchResultsResultsElement.innerHTML += `
                         <div class="filtered-events-section">
-                            <h2><a id="${stringToLowercaseSnakeCase(category)}"></a>${category}</h2>
-                            ${events}
+                            <h2 id="${stringToLowercaseSnakeCase(category)}">${category}</h2>
+                            <div class="filtered-events">
+                                ${events}
+                            </div>
                         </div>
                     `
                 }

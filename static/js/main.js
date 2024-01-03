@@ -1,4 +1,4 @@
-import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements } from './helpers.js';
+import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements } from './exports/helpers.js';
 
 function checkPage(id) {
     const currentPage = window.location.pathname.split('/').pop()

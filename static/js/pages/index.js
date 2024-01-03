@@ -1,5 +1,5 @@
-import { loadEvents, loadNews } from "./api.js";
-import { addElementToDOM, fullDaynameToShortForm, backToRoot } from "./helpers.js"
+import { loadEvents, loadNews } from "../exports/api.js";
+import { addElementToDOM, fullDaynameToShortForm, backToRoot } from "../exports/helpers.js"
 
 function loadEightRandomEvents() {
     loadEvents((data) => {

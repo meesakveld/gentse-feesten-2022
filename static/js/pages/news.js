@@ -1,5 +1,5 @@
-import { loadNews } from "./api.js";
-import { addElementToDOM, backToRoot } from "./helpers.js"
+import { loadNews } from "../exports/api.js";
+import { addElementToDOM, backToRoot } from "../exports/helpers.js"
 
 function loadNewsItems() {
     loadNews((data) => {

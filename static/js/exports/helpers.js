@@ -124,6 +124,20 @@ function stringToLowercaseSnakeCase(string) {
 }
 
 
+/**
+ * Check if an DOM element exists
+ * @param {string} elem The DOM element to check
+ * @returns True if the element exists, false if not
+ */
+function checkDOMElementExistence(elem) {
+    if (document.querySelector(elem)) {
+        return true
+    } else {
+        return false
+    }
+}
+
+
 export {
     addElementToDOM,
     backToRoot,
@@ -135,4 +149,5 @@ export {
     fullDaynameToShortForm,
     getSearchParamsFromURL,
     stringToLowercaseSnakeCase,
+    checkDOMElementExistence,
 }
