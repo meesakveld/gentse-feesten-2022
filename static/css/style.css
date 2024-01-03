@@ -1268,6 +1268,10 @@ footer svg {
 				width: 1rem;
 				flex-shrink: 0;
 			}
+
+			& li a:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 
