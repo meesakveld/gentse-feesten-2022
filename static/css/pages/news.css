@@ -1,0 +1,29 @@
+/* MAIN */
+@import url("../style.css");
+
+
+/* ELEMENTS */
+@import url("../elements/news-item.css");
+@import url("../elements/next-page.css");
+
+
+
+/* ———————————————————————————————————————————————— */
+
+/* News.html */
+.GF-news {
+	margin-bottom: 6rem;
+}
+
+.news-items {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 3rem 0;
+}
+
+@media (width > 43.75rem) {
+	.news-items {
+		margin: 0 4rem;
+	}
+}

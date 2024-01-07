@@ -1,0 +1,142 @@
+/* MAIN */
+@import url("../style.css");
+
+/* ELEMENTS */
+@import url("../elements/activity.css");
+@import url("../elements/next-page.css");
+
+
+/* ———————————————————————————————————————————————— */
+
+/* Search.html */
+.search__title {
+	color: var(--white);
+	font-size: 1.2rem;
+}
+
+.search__title h2 {
+	line-height: 2rem;
+}
+
+@media (width > 48rem) {
+	.search__title h2 {
+		padding-top: 2rem;
+		font-size: 2.4rem;
+	}
+}
+
+.search__title form {
+	display: block;
+	margin: auto;
+	width: 90%;
+	
+	transition: all 0.5s ease;
+	font-size: 0.9rem;
+	margin-top: 6rem;
+	margin-bottom: 4rem;
+}
+
+@media (width > 48rem) {
+	.search__title form {
+		width: 80%;
+		font-size: 1.1rem;
+	}
+}
+
+.search__title input {
+	background-color: var(--black);
+	border: 1px solid var(--white);
+	border-radius: 0;
+	width: 100%;
+	padding: 1rem;
+	color: inherit;
+}
+
+.search__title input[type="text"] {
+	padding-right: 3rem;
+}
+
+.search__title input[type="submit"] {
+	background-image: url(../../img/icons/search.svg);
+	background-size: 1rem;
+	background-repeat: no-repeat;
+	border: none;
+
+	position: absolute;
+	background-color: transparent;
+	width: auto;
+	right: 0px;
+	top: 50%;
+    transform: translateY(-15%);
+
+	cursor: pointer;
+}
+
+.search__title input::placeholder {
+	color: inherit;
+}
+
+.search-results {
+	color: var(--white);
+	margin-bottom: 5rem;
+}
+
+.search-results .search-results__amount {
+	text-align: center;
+}
+
+/* ————— */
+
+.search-results.hidden {
+	display: none;
+}
+
+.search-results__view-option {
+	margin: 3rem 0rem 3rem auto;
+	width: 4.5rem;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.search-results__view-option span {
+	display: block;
+	width: 2rem;
+	height: 2rem;
+
+	cursor: pointer;
+
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: center center;
+}
+
+.search-results__view-option span.active {
+	background-color: var(--red);
+	fill: var(--black);
+}
+
+.search-results__view-option .box {
+	background-image: url(../../img/icons/raster.svg);
+}
+
+.search-results__view-option .list {
+	background-image: url(../../img/icons/list.svg);
+}
+
+.search-results__results {
+	margin-bottom: 3rem;
+}
+
+.search-results__results.box {
+	gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+    align-items: center;
+}
+
+.search-results__results .box {
+	width: 22rem;
+	height: 18rem;
+	flex-grow: 1;
+}

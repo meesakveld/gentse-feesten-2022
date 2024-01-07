@@ -1,0 +1,17 @@
+.max-width {
+	margin: 0 auto;
+	padding: 0 1rem;
+	max-width: 90rem;
+}
+
+@media (width > 48rem) {
+	.max-width {
+		padding: 0 2.5rem;
+	}
+}
+
+@media (width > 80rem) {
+	.max-width {
+		padding: 0 2.5rem;
+	}
+}
