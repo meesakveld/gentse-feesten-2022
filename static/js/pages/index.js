@@ -17,7 +17,7 @@ function loadEightRandomEvents() {
             return `   
                 <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
                     <div class="image">
-                        <img src="${event.image.full}" alt="${event.title}">
+                        <img loading="lazy" src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
                     </div>
                     <p class="date">${fullDaynameToShortForm(event.day_of_week)} ${event.day} juli</p>
                     <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">

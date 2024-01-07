@@ -96,7 +96,7 @@ function loadDayEventsBasedOnCategory() {
                         return `
                             <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
                                 <div class="image">
-                                    <img src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
+                                    <img loading="lazy" src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
                                 </div>
                                 <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
                                     <h3 class="name">${event.title}</h3>
