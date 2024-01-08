@@ -93,6 +93,7 @@
         
         border: 1px solid var(--white);
         color: white;   
+        width: 100%;
 
         @media (width < 47rem) {
             padding: 1rem;

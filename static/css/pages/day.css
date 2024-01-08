@@ -225,8 +225,71 @@
 
 .search-results__results {
 	color: white;
+	padding-bottom: 4rem;
 
 	h2 {
 		text-align: center;
 	}
+
+	.title {
+		margin: 3rem auto;
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+	}
+}
+
+.filtered-events {
+    display: flex;
+    flex-wrap: wrap;
+	align-items: center;
+    gap: 1rem;
+}
+
+.activity.box {
+	width: clamp(100%, 45vw, 50rem);
+}
+
+@media (width > 37.5rem) {
+	.activity.box {
+		width: 48%
+	}
+}
+
+@media (width > 62.5rem) {
+	.activity.box {
+		width: 32%
+	}
+}
+
+.search-results__view-option {
+	margin: 3rem 0rem 3rem auto;
+	width: 4.5rem;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.search-results__view-option span {
+	display: block;
+	width: 2rem;
+	height: 2rem;
+
+	cursor: pointer;
+
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: center center;
+}
+
+.search-results__view-option span.active {
+	background-color: var(--red);
+	fill: var(--black);
+}
+
+.search-results__view-option .box {
+	background-image: url(../../img/icons/raster.svg);
+}
+
+.search-results__view-option .list {
+	background-image: url(../../img/icons/list.svg);
 }

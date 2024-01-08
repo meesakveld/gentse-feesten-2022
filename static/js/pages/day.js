@@ -50,7 +50,7 @@ function loadThreeRandomActivities() {
             return `
                 <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
                     <div class="image">
-                        <img src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
+                        <img loading="lazy" src="${event.image ? event.image.thumb : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
                     </div>
                     <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
                         <h3 class="name">${event.title}</h3>
@@ -66,8 +66,8 @@ function loadThreeRandomActivities() {
     })
 }
 
-function loadCategoriesInFilterMenu() {
-    loadCategories((data) => {
+async function loadCategoriesInFilterMenu() {
+    await loadCategories((data) => {
         const html = data.sort().map(category => {
             return `
                 <li><a href="${backToRoot()}events/day.html#${stringToLowercaseSnakeCase(category)}">${category}</a></li>
@@ -78,13 +78,13 @@ function loadCategoriesInFilterMenu() {
     })
 }
 
-function loadDayEventsBasedOnCategory() {
+async function loadDayEventsBasedOnCategory() {
     const $searchResultsResultsElement = document.querySelector('.search-results__results')
 
-    loadEvents((data) => {
+    await loadEvents(async (data) => {
         const todaysEvents = data.filter(event => event.day === getDateFromURL())
 
-        loadCategories(categories => {
+        await loadCategories(categories => {
 
             for (const category of categories.sort()) {
 
@@ -110,7 +110,10 @@ function loadDayEventsBasedOnCategory() {
 
                     $searchResultsResultsElement.innerHTML += `
                         <div class="filtered-events-section">
-                            <h2 id="${stringToLowercaseSnakeCase(category)}">${category}</h2>
+                            <div class="title">
+                                <h2 id="${stringToLowercaseSnakeCase(category)}">${category}</h2>
+                                <a href="#filter"><img src="${backToRoot()}static/img/icons/arrow-up.svg" alt="arrow up"></a>
+                            </div>
                             <div class="filtered-events">
                                 ${events}
                             </div>
@@ -124,11 +127,11 @@ function loadDayEventsBasedOnCategory() {
 
 
 
-function init() {
+async function init() {
     loadCalendarView()
     loadThreeRandomActivities()
-    loadCategoriesInFilterMenu()
-    loadDayEventsBasedOnCategory()
+    await loadCategoriesInFilterMenu()
+    await loadDayEventsBasedOnCategory()
 }
 
 init()
