@@ -4,6 +4,7 @@
 /* ELEMENTS */
 @import url("../elements/activity.css");
 @import url("../elements/calendar-view.css");
+@import url("../elements/searchbar.css");
 
 
 /* ———————————————————————————————————————————————— */
@@ -189,38 +190,10 @@
 	margin-bottom: 2rem;
 }
 
-.filter__search form {
-	display: block;
-	position: relative;
+.searchbar {
 	margin: 0;
 	width: 100%;
 	max-width: 40rem;
-
-	& input {
-		color: var(--beige);
-		background-color: var(--black);
-		border: 1px solid var(--beige);
-		border-radius: 0;
-		width: 100%;
-		padding: 1rem;
-		color: inherit;
-	}
-
-	& input[type="submit"] {
-		background-image: url(../../img/icons/search.svg);
-		background-size: 1rem;
-		background-repeat: no-repeat;
-		border: none;
-
-		position: absolute;
-		background-color: transparent;
-		width: auto;
-		right: 0px;
-		top: 50%;
-		transform: translateY(-15%);
-
-		cursor: pointer;
-	}
 }
 
 .search-results__results {
@@ -292,4 +265,30 @@
 
 .search-results__view-option .list {
 	background-image: url(../../img/icons/list.svg);
+}
+
+.other-activities__img {
+	height: 11rem;
+	overflow: hidden;
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.other-activities {
+	background-color: var(--red);
+	padding: 1rem 1rem;
+
+	h2, p {
+		padding: 0.5rem 0;
+	}
+
+	.searchbar {
+		margin: 0.5rem 0;
+		margin-right: auto;
+	}
+
 }
