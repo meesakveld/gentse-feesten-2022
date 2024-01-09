@@ -1,0 +1,74 @@
+/* Searchbar */
+/*
+
+    <form class="relative searchbar">
+        <input class="input" type="text" placeholder="Doorzoek het programma." value="" required>
+        <input class="submit" type="submit" value="">
+    </form>
+
+*/
+
+.searchbar {
+    display: block;
+    transition: all 0.5s ease;
+    font-size: 0.9rem;
+
+    @media (width > 48rem) {
+        font-size: 1.1rem;
+    }
+    
+    & input {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0;
+        color: var(--black);
+        border: 1px solid var(--black);
+    }
+
+    &.white input { /* WHITE-TEXT & BORDER? -> Add white */
+        background-color: var(--black);
+        color: var(--white);
+        border-color: var(--white);
+    }
+    
+    &.beige input { /* BEIGE-TEXT & BORDER? -> Add beige */
+        background-color: var(--black);
+        color: var(--beige);
+        border-color: var(--beige);
+    }
+
+    & input[type="text"] {
+        padding-right: 4rem;
+    }
+
+    & input[type="submit"] {
+        mask: url(../../img/icons/search.svg);
+        mask-size: 50%;
+        mask-repeat: no-repeat;
+        border: none;
+    
+        width: 10px;
+        height: 10px;
+        
+        position: absolute;
+        background-color: black;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-25%);
+    
+        cursor: pointer;
+    }
+
+    &.white input[type="submit"] {
+        background-color: white;
+    }
+
+    &.beige input[type="submit"] {
+        background-color: var(--beige);
+    }
+
+    & input::placeholder {
+        color: inherit;
+    }
+
+}
