@@ -1,8 +1,8 @@
 import { loadEvents, loadNews } from "../exports/api.js";
 import { addElementToDOM, fullDaynameToShortForm, backToRoot } from "../exports/helpers.js"
 
-function loadEightRandomEvents() {
-    loadEvents((data) => {
+async function loadEightRandomEvents() {
+    await loadEvents((data) => {
         // Filter on events with images
         const eventsWithImages = data.filter(event => event.image !== null)
 
@@ -29,14 +29,14 @@ function loadEightRandomEvents() {
                 </article>
             `
         }).join('');
-        
-        addElementToDOM(html, '.featured-events__events')        
+
+        addElementToDOM(html, '.featured-events__events')
 
     })
 }
 
-function loadLatestNewsItems() {
-    loadNews((data) => {
+async function loadLatestNewsItems() {
+    await loadNews((data) => {
         const latestThreeArticles = data.slice(0, 3)
         const html = latestThreeArticles.map(article => {
             return `
@@ -53,9 +53,13 @@ function loadLatestNewsItems() {
     })
 }
 
-function init() {
-    loadEightRandomEvents()
-    loadLatestNewsItems()
+async function init() {
+    try {
+        await loadEightRandomEvents()
+        await loadLatestNewsItems()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 init()

@@ -37,8 +37,8 @@ function loadCalendarView() {
     addElementToDOM(html, '.calendar-view')
 }
 
-function loadThreeRandomActivities() {
-    loadEvents((data) => {
+async function loadThreeRandomActivities() {
+    await loadEvents((data) => {
         const today = getDateFromURL()
         const events = data.filter(event => event.day === today)
         const arr = []
@@ -128,10 +128,14 @@ async function loadDayEventsBasedOnCategory() {
 
 
 async function init() {
-    loadCalendarView()
-    loadThreeRandomActivities()
-    await loadCategoriesInFilterMenu()
-    await loadDayEventsBasedOnCategory()
+    try {
+        loadCalendarView()
+        await loadThreeRandomActivities()
+        await loadCategoriesInFilterMenu()
+        await loadDayEventsBasedOnCategory()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 init()

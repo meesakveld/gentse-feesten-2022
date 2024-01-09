@@ -7,8 +7,8 @@ function getViewOption() {
     return activeView[0]
 }
 
-function loadEventResults(searchText) {
-    loadEvents((data) => {
+async function loadEventResults(searchText) {
+    await loadEvents((data) => {
         const filteredEvents = data.filter(event => event.title.toLowerCase().includes(searchText.toLowerCase()));
 
         const htmlEvents = filteredEvents.map((event, index) => {
@@ -34,26 +34,30 @@ function loadEventResults(searchText) {
     })
 }
 
-function loadEventsWhenSearched() {
+async function loadEventsWhenSearched() {
     const $submitElement = document.querySelector('.search__title .submit')
     $submitElement.addEventListener('click', (ev) => {
         ev.preventDefault()
     })
 
     const $inputElement = document.querySelector('.search__title .input')
-    $inputElement.addEventListener('keyup', (ev) => {
+    $inputElement.addEventListener('keyup', async (ev) => {
         ev.preventDefault()
         const searchText = document.querySelector('.search__title .input').value
         if (searchText !== '') {
-            loadEventResults(searchText)
+            await loadEventResults(searchText)
             const $searchResults = document.querySelector('.search-results')
             $searchResults.classList.remove('hidden')
         }
     });
 }
 
-function init() {
-    loadEventsWhenSearched()
+async function init() {
+    try {
+        await loadEventsWhenSearched()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-init()
+init();

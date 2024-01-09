@@ -1,8 +1,8 @@
 import { loadNews } from "../exports/api.js";
 import { addElementToDOM, backToRoot } from "../exports/helpers.js"
 
-function loadNewsItems() {
-    loadNews((data) => {
+async function loadNewsItems() {
+    await loadNews((data) => {
         const html = data.map(article => {
             return `
                 <article>
@@ -22,4 +22,12 @@ function loadNewsItems() {
 
 }
 
-loadNewsItems()
+async function init() {
+    try {
+        await loadNewsItems()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+init();
