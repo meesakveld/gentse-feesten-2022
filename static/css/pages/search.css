@@ -98,8 +98,18 @@
     align-items: center;
 }
 
-.search-results__results .box {
-	width: 22rem;
-	height: 18rem;
-	flex-grow: 1;
+.activity.box {
+	width: 100%;
+}
+
+@media (width > 37.5rem) {
+	.activity.box {
+		width: 48%
+	}
+}
+
+@media (width > 62.5rem) {
+	.activity.box {
+		width: 32%
+	}
 }
