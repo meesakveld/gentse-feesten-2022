@@ -192,7 +192,6 @@ function loadTodayToEnjoyImage(randomLetter) {
     }
 }
 
-
 function switchViewMode() {
     const $resultsElement = document.querySelector('.search-results__results')
     const $boxElementSwitch = document.querySelector('span.box')
@@ -229,12 +228,27 @@ function switchViewMode() {
     }
 }
 
+function searchBarLoadWhatsSearched() {
+    const $searchBar = document.querySelector('.searchbar')
+    if (!$searchBar) { return }
+    
+    const $searchbarButton = $searchBar.querySelector('.submit')
+    console.log($searchbarButton);
+    
+    $searchbarButton.addEventListener('click', (ev) => {
+        ev.preventDefault()
+        const searchbarValue = $searchBar.querySelector('input').value
+        window.open(`${backToRoot()}search.html?query=${searchbarValue}`, '_self')
+    })
+}
+
 
 function init() {
     loadHeader(randomLetter)
     addHTMLForFooter(randomLetter)
     loadTodayToEnjoyImage(randomLetter)
     switchViewMode()
+    searchBarLoadWhatsSearched()
 };
 
 init();
