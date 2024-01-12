@@ -70,7 +70,7 @@ async function loadCategoriesInFilterMenu() {
     await loadCategories((data) => {
         const html = data.sort().map(category => {
             return `
-                <li><a href="${backToRoot()}events/day.html#${stringToLowercaseSnakeCase(category)}">${category}</a></li>
+                <li><a href="${backToRoot()}events/day.html?day=${getDateFromURL()}#${stringToLowercaseSnakeCase(category)}">${category}</a></li>
             `
         }).join('');
 
