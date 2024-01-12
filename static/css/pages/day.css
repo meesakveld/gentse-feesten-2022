@@ -282,6 +282,26 @@
     margin-bottom: 2rem;
 }
 
+@media (width > 62.5rem) {
+	.other-activities__container {
+		display: flex;
+	}
+
+	.other-activities__container .other-activities__img {
+		width: 25%;
+		height: 25%;
+	}
+
+	.other-activities__container .other-activities {
+		flex-grow: 1;
+		padding: 2rem 4rem;
+
+		h2 {
+			font-size: 2rem;
+		}
+	}
+}
+
 .other-activities {
 	background-color: var(--red);
 	padding: 1rem 1rem;
