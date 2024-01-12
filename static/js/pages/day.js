@@ -125,6 +125,12 @@ async function loadDayEventsBasedOnCategory() {
     })
 }
 
+function loadTitle() {
+    const $title = document.querySelector('head title')
+    const day = getDateFromURL()
+    $title.innerHTML = `${day} juli | Gentse Feesten 2023`
+}
+
 
 
 async function init() {
@@ -133,6 +139,7 @@ async function init() {
         await loadThreeRandomActivities()
         await loadCategoriesInFilterMenu()
         await loadDayEventsBasedOnCategory()
+        loadTitle()
     } catch (error) {
         console.log(error)
     }
