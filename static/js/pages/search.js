@@ -31,30 +31,25 @@ async function loadEventResults(searchText) {
         addElementToDOM(`<p><strong>${filteredEvents.length} resultaten</strong> voor "${searchText}"</p>`, '.search-results__amount')
         addElementToDOM(htmlEvents, '.search-results__results')
 
+        const $searchResults = document.querySelector('.search-results')
+        $searchResults.classList.remove('hidden')
+        
     })
 }
 
-async function loadEventsWhenSearched() {
-    const $submitElement = document.querySelector('.search__title .submit')
-    $submitElement.addEventListener('click', (ev) => {
-        ev.preventDefault()
-    })
+async function loadEventsFromUrlQuery() {
 
-    const $inputElement = document.querySelector('.search__title .input')
-    $inputElement.addEventListener('keyup', async (ev) => {
-        ev.preventDefault()
-        const searchText = document.querySelector('.search__title .input').value
-        if (searchText !== '') {
-            await loadEventResults(searchText)
-            const $searchResults = document.querySelector('.search-results')
-            $searchResults.classList.remove('hidden')
-        }
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchText = urlParams.get('query');
+
+    if (!searchText) return 
+    await loadEventResults(searchText)
+
 }
 
 async function init() {
     try {
-        await loadEventsWhenSearched()
+        await loadEventsFromUrlQuery()
     } catch (error) {
         console.log(error)
     }
