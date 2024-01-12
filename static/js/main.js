@@ -204,7 +204,7 @@ function switchViewMode() {
             $boxElementSwitch.classList.add('active')
             $listElementSwitch.classList.remove('active')
             
-            const $articlesElements = document.querySelectorAll('article .activity')
+            const $articlesElements = document.querySelectorAll('.search-results__results .activity')
             $articlesElements.forEach(article => {
                 $resultsElement.classList.add('box')
 
@@ -217,7 +217,7 @@ function switchViewMode() {
             $listElementSwitch.classList.add('active')
             $boxElementSwitch.classList.remove('active')
             
-            const $articlesElements = document.querySelectorAll('article .activity')
+            const $articlesElements = document.querySelectorAll('.search-results__results .activity')
             $articlesElements.forEach(article => {
                 $resultsElement.classList.remove('box')
 
