@@ -53,12 +53,22 @@
 
             & .name {
                 flex: 0 0 100%;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             & .location {
                 background-color: var(--red);
                 display: inline-block;
                 padding: 0.2rem 0.5rem;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
             
         }
