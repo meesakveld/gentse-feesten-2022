@@ -11,6 +11,25 @@
 /* ———————————————————————————————————————————————— */
 
 /* Index.html */
+.date-circle {
+	display: none;
+    position: absolute;
+    top: -2.5rem;
+    right: 4rem;
+}
+
+@media (width > 48rem) {
+	.date-circle {
+		display: flex;
+	}
+}
+
+@media (width > 80rem) {
+	.date-circle {
+		top: -3.5rem;
+	}
+}
+
 .today-to-enjoy {
 	background-color: var(--beige);
 }
@@ -79,7 +98,7 @@
 
 	.today-to-enjoy .calendar-view.grid {
 		grid-template-columns: repeat(3, 22%);
-		grid-template-rows: repeat(4, 43%);
+		grid-template-rows: repeat(4, auto);
 	}
 
 	.today-to-enjoy__cta {
