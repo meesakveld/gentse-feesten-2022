@@ -22,7 +22,7 @@
     position: relative;
 
     & h3 {
-        font-size: 1.17em;
+        font-size: 1rem;
     }
 
     &.box { /* IMPORTANT: Add height and width! */
