@@ -21,6 +21,10 @@
 
     position: relative;
 
+    & h3 {
+        font-size: 1.17em;
+    }
+
     &.box { /* IMPORTANT: Add height and width! */
 
         margin-bottom: 7.5%;
@@ -124,7 +128,7 @@
             &.date .date{
                 display: block;
                 flex-shrink: 0;
-                flex-basis: 8%;
+                flex-basis: 10%;
             }
 
             & p, & h3 {
