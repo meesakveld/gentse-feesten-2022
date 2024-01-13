@@ -92,6 +92,7 @@ header li,
 }
 
 @media (width > 80rem) {
+
 	.nav__ul li {
 		display: block;
 	}
@@ -118,6 +119,27 @@ header li,
 		gap: 3.3rem;
 		text-transform: uppercase;
 	}
+
+}
+
+@media (width > 82rem) {
+	.nav--right li {
+		display: block;
+		text-transform: uppercase;
+	}
+
+	.nav--right li::after {
+		content: "";
+		margin-top: 0.5rem;
+		width: 1.3rem;
+		height: 0.8rem;
+		position: absolute;
+	}
+
+	.nav--right li:hover::after {
+		border-top: 2.5px solid var(--white);
+	}
+
 }
 
 header.open .nav__ul {
