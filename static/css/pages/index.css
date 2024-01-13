@@ -11,7 +11,7 @@
 /* ———————————————————————————————————————————————— */
 
 /* Index.html */
-.date-circle {
+.today-to-enjoy .date-circle {
 	display: none;
     position: absolute;
     top: -2.5rem;
@@ -19,13 +19,13 @@
 }
 
 @media (width > 48rem) {
-	.date-circle {
+	.today-to-enjoy .date-circle {
 		display: flex;
 	}
 }
 
 @media (width > 80rem) {
-	.date-circle {
+	.today-to-enjoy .date-circle {
 		top: -3.5rem;
 	}
 }
