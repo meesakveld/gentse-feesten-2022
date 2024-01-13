@@ -56,12 +56,41 @@
 		flex-direction: column;
 
 		& ul {
-			display: flex;
-			flex-wrap: wrap;
-			column-gap: 2rem;
-			row-gap: 1rem;
-			padding: 2rem 1rem;
-			border-bottom: 1px solid var(--beige);
+				display: flex;
+				flex-wrap: wrap;
+				column-gap: 2rem;
+				row-gap: 1rem;
+				padding: 2rem 1rem;
+				border-bottom: 1px solid var(--beige);
+		}
+		
+		& input[type=radio], & label {
+			position: relative;
+			cursor: pointer;
+		}
+		
+		& input[type=radio]:before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: -6px;
+			left: -8px;
+			border: 2px solid var(--beige);
+			background-color: black;
+		}
+	
+		& input[type=radio]:checked:after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: -6px;
+			left: -8px;
+			border: 2px solid var(--beige);
+			background-color: var(--beige);
 		}
 
 		& li {
@@ -70,15 +99,6 @@
 			gap: 1rem;
 			color: var(--beige);
 			fill: var(--beige);
-		}
-		
-		& li::before {
-			content: "";
-			background-image: url(../../img/icons/rectangle.svg);
-			background-size: 100%;
-			width: 1.5rem;
-			height: 1.5rem;
-			display: block;
 		}
 
 		& div {
