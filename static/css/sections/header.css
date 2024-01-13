@@ -257,7 +257,7 @@ header.open .days-arrow {
 	}
 }
 
-header.open .full-menu li#day:hover .days-arrow {
+header.open .full-menu li#day:hover svg.days-arrow {
 	fill: var(--white);
 }
 
@@ -280,5 +280,13 @@ header.open .campagne-img {
 	header.open .campagne-img {
 		display: flex;
 		align-items: center;
+	}
+}
+
+header.open .full-menu__nav li.active {
+	color: var(--white);
+	
+	svg {
+		fill: var(--white);
 	}
 }
