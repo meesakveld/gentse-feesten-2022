@@ -3,7 +3,8 @@ import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseS
 
 function getDateFromURL() {
     const day = getSearchParamsFromURL('day');
-    if (day === null) { 
+    const days = [14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+    if (day === null || !days.includes(parseInt(day))) { 
         return '14'
     } else {
         return day
