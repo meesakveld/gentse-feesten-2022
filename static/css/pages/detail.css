@@ -58,6 +58,7 @@ main h2, main h3, main h4 {
 
         @media (width > 48rem) {
             display: flex;
+            justify-content: space-between;
             gap: 3rem;
         }
 
@@ -252,6 +253,7 @@ main h2, main h3, main h4 {
 .more-organiser-events__container {
     
     & h4 {
+        color: var(--white);
         text-align: center;
         margin: 2rem auto;
     }
