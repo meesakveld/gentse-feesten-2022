@@ -138,6 +138,38 @@ function checkDOMElementExistence(elem) {
 }
 
 
+/**
+ * The function checks if the current page URL matches the specified page name and returns 'active' if
+ * it does, otherwise it returns an empty string.
+ * @param page - The `page` parameter is a string representing the name of the page you want to check.
+ * @returns either 'active' if the current page URL matches the provided page name with the '.html'
+ * extension, or an empty string if they do not match.
+ */
+function checkPageURL(page) {
+    const fileName = location.pathname.split("/").slice(-1)[0]
+    if (fileName === (page + '.html')) {
+        return 'active'
+    } else return ''
+}
+
+
+/**
+ * The function checks if the value of the 'day' parameter in the URL matches the provided day, and
+ * returns 'active' if it does, otherwise it returns an empty string.
+ * @param day - The `day` parameter is a string that represents a specific day.
+ * @returns either the string 'active' if the value of the 'day' parameter in the URL matches the
+ * provided 'day' argument, or an empty string if they do not match.
+ */
+function checkDayFromURL(day) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('day') === day) {
+        return 'active'
+    } else return ''
+}
+
+
+
+
 export {
     addElementToDOM,
     backToRoot,
@@ -150,4 +182,6 @@ export {
     getSearchParamsFromURL,
     stringToLowercaseSnakeCase,
     checkDOMElementExistence,
+    checkPageURL,
+    checkDayFromURL,
 }

@@ -1,4 +1,4 @@
-import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements } from './exports/helpers.js';
+import { addElementToDOM, backToRoot, randomNumber, addEventlistenerToElement, addEventlistenerToElements, toggleClassToClasslistOfElement, toggleClassToClasslistOfElements, checkPageURL, checkDayFromURL } from './exports/helpers.js';
 
 function checkPage(id) {
     const currentPage = window.location.pathname.split('/').pop()
@@ -61,8 +61,8 @@ function addHTMLForHeader(randomLetter) {
         <div class="full-menu max-width">
             <div class="full-menu__nav">
                 <ul class="full-menu__nav__menu">
-                    <li id="news"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
-                    <li id="day">
+                    <li id="news" class="${checkPageURL("news")}"><a href="${backToRoot()}news.html"><strong>Nieuws</strong></a></li>
+                    <li id="day" class="${checkPageURL("day")}">
                         <a class="relative" href="${backToRoot()}events/day.html">
                             <strong>Programma</strong>
                             <svg class="days-arrow" xmlns="http://www.w3.org/2000/svg" width="85" height="32"><path d="m68.393 0-3.434 3.808 9.845 8.881H.001v5.129h74.828l-9.865 8.848 3.424 3.817 16.946-15.2z"/></svg>
@@ -73,16 +73,16 @@ function addHTMLForHeader(randomLetter) {
                     <li><a href="#"><strong>Hoe naar GF23</strong></a></li>
                 </ul>
                 <ul class="full-menu__nav__days">
-                    <li><a href="${backToRoot()}events/day.html?day=14"><strong>Vrijdag 14 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=15"><strong>Zaterdag 15 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=16"><strong>Zondag 16 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=17"><strong>Maandag 17 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=18"><strong>Dinsdag 18 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=19"><strong>Woensdag 19 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=20"><strong>Donderdag 20 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=21"><strong>Vrijdag 21 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=22"><strong>Zaterdag 22 juli</strong></a></li>
-                    <li><a href="${backToRoot()}events/day.html?day=23"><strong>Zondag 23 juli</strong></a></li>
+                    <li class="${checkDayFromURL("14")}"><a href="${backToRoot()}events/day.html?day=14"><strong>Vrijdag 14 juli</strong></a></li>
+                    <li class="${checkDayFromURL("15")}"><a href="${backToRoot()}events/day.html?day=15"><strong>Zaterdag 15 juli</strong></a></li>
+                    <li class="${checkDayFromURL("16")}"><a href="${backToRoot()}events/day.html?day=16"><strong>Zondag 16 juli</strong></a></li>
+                    <li class="${checkDayFromURL("17")}"><a href="${backToRoot()}events/day.html?day=17"><strong>Maandag 17 juli</strong></a></li>
+                    <li class="${checkDayFromURL("18")}"><a href="${backToRoot()}events/day.html?day=18"><strong>Dinsdag 18 juli</strong></a></li>
+                    <li class="${checkDayFromURL("19")}"><a href="${backToRoot()}events/day.html?day=19"><strong>Woensdag 19 juli</strong></a></li>
+                    <li class="${checkDayFromURL("20")}"><a href="${backToRoot()}events/day.html?day=20"><strong>Donderdag 20 juli</strong></a></li>
+                    <li class="${checkDayFromURL("21")}"><a href="${backToRoot()}events/day.html?day=21"><strong>Vrijdag 21 juli</strong></a></li>
+                    <li class="${checkDayFromURL("22")}"><a href="${backToRoot()}events/day.html?day=22"><strong>Zaterdag 22 juli</strong></a></li>
+                    <li class="${checkDayFromURL("23")}"><a href="${backToRoot()}events/day.html?day=23"><strong>Zondag 23 juli</strong></a></li>
                     <li><a href="${backToRoot()}events/day.html?day=14"><strong>Programma</strong></a></li>
                 </ul>
             </div>
@@ -233,7 +233,6 @@ function searchBarLoadWhatsSearched() {
     if (!$searchBar) { return }
     
     const $searchbarButton = $searchBar.querySelector('.submit')
-    console.log($searchbarButton);
     
     $searchbarButton.addEventListener('click', (ev) => {
         ev.preventDefault()
