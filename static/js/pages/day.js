@@ -42,11 +42,24 @@ async function loadCategoriesInFilterMenu() {
     })
 }
 
-async function loadDayEventsBasedOnCategory() {
+async function loadDayEventsBasedOnCategory(filter) {
     const $searchResultsResultsElement = document.querySelector('.search-results__results')
+    $searchResultsResultsElement.innerHTML = ''
 
     await loadEvents(async (data) => {
-        const todaysEvents = data.filter(event => event.day === getDateFromURL())
+        let todaysEvents = data.filter(event => event.day === getDateFromURL())
+
+        switch (filter) {
+            case "wheelchair_accessible":
+                todaysEvents = todaysEvents.filter(event => event.wheelchair_accessible === true)
+                console.log('activated');
+                break;
+            case "ticket":
+                todaysEvents = todaysEvents.filter(event => event.ticket === "free")
+                break;
+            default:
+                break;
+        }
 
         await loadCategories(categories => {
 
@@ -75,6 +88,19 @@ async function loadDayEventsBasedOnCategory() {
     })
 }
 
+async function filterResults() {
+    const $wheelchairElement = document.querySelector('#ftr-wheelchair')
+    const $priceElement = document.querySelector('#ftr-price')
+    
+    $wheelchairElement.addEventListener('click', async () => {
+        await loadDayEventsBasedOnCategory('wheelchair_accessible')
+    })
+
+    $priceElement.addEventListener('click', async () => {
+        await loadDayEventsBasedOnCategory('ticket')
+    })
+}
+
 function loadTitle() {
     const $title = document.querySelector('head title')
     const day = getDateFromURL()
@@ -89,6 +115,7 @@ async function init() {
         await loadThreeRandomActivities()
         await loadCategoriesInFilterMenu()
         await loadDayEventsBasedOnCategory()
+        await filterResults()
         loadTitle()
     } catch (error) {
         console.log(error)
