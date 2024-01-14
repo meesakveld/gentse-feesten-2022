@@ -1,5 +1,5 @@
 import { loadEvents } from "../exports/api.js";
-import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase, fullDaynameToShortForm } from "../exports/helpers.js"
+import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase } from "../exports/helpers.js"
 import { generateHTMLForActivity, generateHTMLForCalendarView } from "../exports/components.js";
 
 

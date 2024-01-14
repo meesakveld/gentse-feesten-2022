@@ -1,7 +1,5 @@
 import { backToRoot, fullDaynameToShortForm } from '../helpers.js';
 
-
-
 /**
  * The function `generateHTMLForEvents` generates HTML code for a list of events, including their
  * image, date, title, location, start time, and ticket price if applicable.

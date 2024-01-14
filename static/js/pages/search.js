@@ -1,12 +1,6 @@
 import { loadEvents } from "../exports/api.js";
-import { addElementToDOM, fullDaynameToShortForm, backToRoot } from "../exports/helpers.js"
+import { addElementToDOM } from "../exports/helpers.js"
 import { generateHTMLForActivity } from "../exports/components.js";
-
-function getViewOption() {
-    const viewStatus = document.querySelector('.active')
-    const activeView = viewStatus.classList
-    return activeView[0]
-}
 
 async function loadEventResults(searchText) {
     await loadEvents((data) => {

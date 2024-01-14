@@ -1,5 +1,5 @@
 import { loadEvents, loadCategories } from "../exports/api.js";
-import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase, fullDaynameToShortForm } from "../exports/helpers.js"
+import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase } from "../exports/helpers.js"
 import { generateHTMLForActivity, generateHTMLForCalendarView } from "../exports/components.js";
 
 function getDateFromURL() {
@@ -52,7 +52,6 @@ async function loadDayEventsBasedOnCategory(filter) {
         switch (filter) {
             case "wheelchair_accessible":
                 todaysEvents = todaysEvents.filter(event => event.wheelchair_accessible === true)
-                console.log('activated');
                 break;
             case "ticket":
                 todaysEvents = todaysEvents.filter(event => event.ticket === "free")
