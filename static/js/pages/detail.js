@@ -56,7 +56,7 @@ function generateHTMLForDetail(ev) {
                     }
                 </div>
             </div>
-            ${ ev.wheelchair_accessible = true ?
+            ${ ev.wheelchair_accessible === true ?
                 '<img src="../static/img/icons/wheelchair.svg" alt="wheelchair accessible icon">'                
             : ''}
 
