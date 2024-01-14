@@ -108,6 +108,11 @@ footer {
 		border: none;
 		padding: 0.8rem 2rem;
 		font-weight: 700;
+		transition: all 0.2s ease;
+	}
+
+	& input[type="submit"]:hover {
+		background-color: var(--white);
 	}
 
 	& .disclaimer {
