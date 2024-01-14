@@ -30,6 +30,7 @@
         margin-bottom: 7.5%;
 
         & .date {
+            display: none;
             position: absolute;
             background-color: var(--black);
             color: white;
@@ -207,6 +208,12 @@
 
         }
 
+    }
+
+    &.date {
+        & .date {
+            display: block;
+        }
     }
 
 }
