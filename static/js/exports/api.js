@@ -15,7 +15,7 @@ async function fetchAPIData(APIlink) {
 }
 
 async function loadEvents(callback) {
-    const events = await fetchAPIData(API_URL_EVENTS_LIGHT)
+    const events = await fetchAPIData(API_URL_EVENTS)
     callback(events);
 }
 
