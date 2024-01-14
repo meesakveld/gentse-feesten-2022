@@ -1,6 +1,6 @@
 import { loadEvents } from "../exports/api.js";
 import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase, fullDaynameToShortForm } from "../exports/helpers.js"
-
+import { generateHTMLForActivity } from "../exports/components.js";
 
 
 function checkActiveDay(id, event) {
@@ -95,34 +95,11 @@ function generateHTMLForDetail(ev) {
     `
 }
 
-/**
- * @param {Array} events 
- * @param {string} type 'box' or 'list'
- */
-function generateHTMLForEvents(events, type) {
-    return events.map((event, index) => {
-        return `
-            <article class="activity date ${type} ${index % 2 === 0 ? 'small' : ''}">
-                <div class="image">
-                    <img loading="lazy" src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
-                </div>
-                <p class="date">${fullDaynameToShortForm(event.day_of_week)} ${event.day} juli</p>
-                <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
-                    <h3 class="name">${event.title}</h3>
-                    <p class="location">${event.location}</p>
-                    <p class="time">${event.start} u.</p>
-                    ${event.ticket === 'paid' ? '<p class="price">€</p>' : ''}
-                </a>
-            </article>
-        `
-    }).join('');
-}
-
-
 async function getEventFromURL() {
     const id = getSearchParamsFromURL('id');
     
     await loadEvents((data) => {
+        // Event that matches the id from the URL
         const filteredEvent = data.find(event => event.id === id)
         if (!filteredEvent) window.open(`${backToRoot()}events/day.html`, '_self')
         
@@ -133,10 +110,10 @@ async function getEventFromURL() {
         addElementToDOM(generateHTMLForDetail(filteredEvent), '.detail__container')
 
         // Load events based on same location
-        addElementToDOM(generateHTMLForEvents(data.filter(event => event.location === filteredEvent.location), 'box'), '.more-location-events')
+        addElementToDOM(generateHTMLForActivity(data.filter(event => event.location === filteredEvent.location), 'box', true), '.more-location-events')
 
         // Load events based on same orginizer
-        addElementToDOM(generateHTMLForEvents(data.filter(event => event.organizer === filteredEvent.organizer), 'list'), '.more-organiser-events')
+        addElementToDOM(generateHTMLForActivity(data.filter(event => event.organizer === filteredEvent.organizer), 'list', true), '.more-organiser-events')
     })
 }
 

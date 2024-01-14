@@ -1,5 +1,6 @@
 import { loadEvents, loadCategories } from "../exports/api.js";
-import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase } from "../exports/helpers.js"
+import { addElementToDOM, backToRoot, getSearchParamsFromURL, stringToLowercaseSnakeCase, fullDaynameToShortForm } from "../exports/helpers.js"
+import { generateHTMLForActivity } from "../exports/components.js";
 
 function getDateFromURL() {
     const day = getSearchParamsFromURL('day');
@@ -47,23 +48,7 @@ async function loadThreeRandomActivities() {
             arr.push(events[Math.floor(Math.random() * events.length)])
         }
 
-        const html = arr.map((event, index) => {
-            return `
-                <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
-                    <div class="image">
-                        <img loading="lazy" src="${event.image ? event.image.thumb : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
-                    </div>
-                    <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
-                        <h3 class="name">${event.title}</h3>
-                        <p class="location">${event.location}</p>
-                        <p class="time">${event.start} u.</p>
-                        <p class="price">${event.ticket === 'paid' ? '€' : ''}</p>
-                    </a>
-                </article>
-            `
-        }).join('');
-
-        addElementToDOM(html, '.threeRandomActivities')
+        addElementToDOM(generateHTMLForActivity(arr), '.threeRandomActivities')
     })
 }
 
@@ -93,21 +78,7 @@ async function loadDayEventsBasedOnCategory() {
 
                 if (categoryEvents.length !== 0) {
 
-                    const events = categoryEvents.map((event, index) => {
-                        return `
-                            <article class="activity box ${index % 2 === 0 ? 'small' : ''}">
-                                <div class="image">
-                                    <img loading="lazy" src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
-                                </div>
-                                <a href="${backToRoot()}events/detail.html?id=${event.id}" class="content">
-                                    <h3 class="name">${event.title}</h3>
-                                    <p class="location">${event.location}</p>
-                                    <p class="time">${event.start} u.</p>
-                                    ${event.ticket === 'paid' ? '<p class="price">€</p>' : ''}
-                                </a>
-                            </article>
-                        `
-                    }).join('');
+                    const events = generateHTMLForActivity(categoryEvents)
 
                     $searchResultsResultsElement.innerHTML += `
                         <div class="filtered-events-section">
