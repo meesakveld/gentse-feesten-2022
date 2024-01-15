@@ -76,12 +76,12 @@ function generateHTMLForDetail(ev) {
 }
 
 async function getEventFromURL() {
-    const id = getSearchParamsFromURL('id');
+    const slug = getSearchParamsFromURL('slug');
     const day = getSearchParamsFromURL('day');
     
     await loadEvents((data) => {
-        // Event that matches the id from the URL
-        const filteredEvent = data.filter(event => event.id === id).find(event => event.day === day)
+        // Event that matches the slug from the URL
+        const filteredEvent = data.filter(event => event.slug === slug).find(event => event.day === day)
         if (!filteredEvent) window.open(`${backToRoot()}events/day.html`, '_self')
         
         // Calendar view

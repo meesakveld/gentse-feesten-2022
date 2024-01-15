@@ -18,7 +18,7 @@ function generateHTMLForActivity(events = [], type = 'box', isShowingDate = fals
                     <img loading="lazy" src="${event.image ? event.image.full : `${backToRoot() + "static/img/logos/campagne-1-G.png"}`}" alt="${event.title}">
                 </div>
                 <p class="date">${fullDaynameToShortForm(event.day_of_week)} ${event.day} juli</p>
-                <a href="${backToRoot()}events/detail.html?day=${event.day}&id=${event.id}" class="content">
+                <a href="${backToRoot()}events/detail.html?day=${event.day}&slug=${event.slug}" class="content">
                     <h3 class="name">${event.title}</h3>
                     <p class="location">${event.location}</p>
                     <p class="time">${event.start} u.</p>
