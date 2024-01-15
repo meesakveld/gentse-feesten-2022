@@ -49,11 +49,11 @@ function generateHTMLForDetail(ev) {
             <div class="category">
                 <p class="title">Categorieën:</p>
                 <div>
-                    ${
+                    ${ ev.category ?
                         ev.category.map(category => {
                             return `<a class="text" href="day.html?day=${ev.day}#${stringToLowercaseSnakeCase(category)}">${category}</a>`
                         }).join('')
-                    }
+                    : ''}
                 </div>
             </div>
             ${ ev.wheelchair_accessible === true ?
@@ -81,8 +81,8 @@ async function getEventFromURL() {
     
     await loadEvents((data) => {
         // Event that matches the slug from the URL
-        const filteredEvent = data.filter(event => event.slug === slug).find(event => event.day === day)
-        if (!filteredEvent) window.open(`${backToRoot()}events/day.html`, '_self')
+        const filteredEvent = data.find(event => event.slug === slug && event.day === day)
+        if (filteredEvent === undefined) window.open(`${backToRoot()}events/day.html`, '_self')
         
         // Calendar view
         loadCalendarView(filteredEvent);
@@ -91,10 +91,10 @@ async function getEventFromURL() {
         addElementToDOM(generateHTMLForDetail(filteredEvent), '.detail__container')
 
         // Load events based on same location
-        addElementToDOM(generateHTMLForActivity(data.filter(event => event.location === filteredEvent.location), 'box', true), '.more-location-events')
+        addElementToDOM(generateHTMLForActivity(data.filter((event) => event.day === filteredEvent.day && event.location === filteredEvent.location), 'box'), '.more-location-events')
 
         // Load events based on same orginizer
-        addElementToDOM(generateHTMLForActivity(data.filter(event => event.organizer === filteredEvent.organizer), 'list', true), '.more-organiser-events')
+        addElementToDOM(generateHTMLForActivity(data.filter((event) => event.day === filteredEvent.day && event.organizer === filteredEvent.organizer), 'list'), '.more-organiser-events')
     })
 }
 
