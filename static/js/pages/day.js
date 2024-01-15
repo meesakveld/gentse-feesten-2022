@@ -12,6 +12,14 @@ function getDateFromURL() {
     }
 }
 
+function returnCurrentViewStatus() {
+    const box = document.querySelector('.search-results__view-option .box')
+    const list = document.querySelector('.search-results__view-option .list')
+
+    if (box.classList.contains('active')) return 'box'
+    else if (list.classList.contains('active')) return 'list'
+}
+
 function loadCalendarView() {
     const html = generateHTMLForCalendarView(getDateFromURL())
     addElementToDOM(html, '.calendar-view')
@@ -68,7 +76,7 @@ async function loadDayEventsBasedOnCategory(filter) {
 
                 if (categoryEvents.length !== 0) {
 
-                    const events = generateHTMLForActivity(categoryEvents)
+                    const events = generateHTMLForActivity(categoryEvents, returnCurrentViewStatus())
 
                     $searchResultsResultsElement.innerHTML += `
                         <div class="filtered-events-section">
