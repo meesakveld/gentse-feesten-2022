@@ -16,6 +16,11 @@ async function loadEventResults(searchText) {
     })
 }
 
+function addSearchValueToSearchbar(searchtext) {
+    const $searchBar = document.querySelector('.searchbar input')
+    $searchBar.value = searchtext
+}
+
 async function loadEventsFromUrlQuery() {
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -23,6 +28,7 @@ async function loadEventsFromUrlQuery() {
 
     if (!searchText) return 
     await loadEventResults(searchText)
+    addSearchValueToSearchbar(searchText)
 
 }
 
