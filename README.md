@@ -1,6 +1,6 @@
 # Gentse Feesten 2023
 
-This project is a website that provides information about the Gentse Feesten 2023. The website is built with HTML, CSS, and JavaScript. The website is responsive and can be viewed on all devices. The data is fetched from an API and displayed on the website. 
+This project is a website that provides information about the Gentse Feesten 2023. It is a recreation of the original Gentse Feesten website. The website is built with HTML, CSS, and JavaScript. The website is responsive and can be viewed on all devices. The data is fetched from an API and displayed on the website. 
 
 It was created as an assignment for the course @Work1 at Artevelde University of Applied Sciences. In this project, I learned how to fetch data from an API and display it on a website. For the first time, I worked component-based in JavaScript.
 
